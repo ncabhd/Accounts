@@ -1,0 +1,193 @@
+﻿namespace Accounts
+{
+    partial class RegisterForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelNameError = new System.Windows.Forms.Label();
+            this.labelPasswordError = new System.Windows.Forms.Label();
+            this.labelConfirmError = new System.Windows.Forms.Label();
+            this.textName = new System.Windows.Forms.TextBox();
+            this.textPassword = new System.Windows.Forms.TextBox();
+            this.textConfirmPassword = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRegister.Location = new System.Drawing.Point(59, 199);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(75, 30);
+            this.btnRegister.TabIndex = 0;
+            this.btnRegister.Text = "注册";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.Location = new System.Drawing.Point(204, 199);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 30);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(56, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "用户名：";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "密码：";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(41, 140);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "确认密码：";
+            // 
+            // labelNameError
+            // 
+            this.labelNameError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelNameError.AutoSize = true;
+            this.labelNameError.Location = new System.Drawing.Point(168, 59);
+            this.labelNameError.Name = "labelNameError";
+            this.labelNameError.Size = new System.Drawing.Size(82, 15);
+            this.labelNameError.TabIndex = 5;
+            this.labelNameError.Text = "用户名为空";
+            this.labelNameError.Visible = false;
+            // 
+            // labelPasswordError
+            // 
+            this.labelPasswordError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelPasswordError.AutoSize = true;
+            this.labelPasswordError.Location = new System.Drawing.Point(171, 112);
+            this.labelPasswordError.Name = "labelPasswordError";
+            this.labelPasswordError.Size = new System.Drawing.Size(67, 15);
+            this.labelPasswordError.TabIndex = 6;
+            this.labelPasswordError.Text = "密码为空";
+            this.labelPasswordError.Visible = false;
+            // 
+            // labelConfirmError
+            // 
+            this.labelConfirmError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelConfirmError.AutoSize = true;
+            this.labelConfirmError.Location = new System.Drawing.Point(153, 165);
+            this.labelConfirmError.Name = "labelConfirmError";
+            this.labelConfirmError.Size = new System.Drawing.Size(97, 15);
+            this.labelConfirmError.TabIndex = 7;
+            this.labelConfirmError.Text = "确认密码为空";
+            this.labelConfirmError.Visible = false;
+            // 
+            // textName
+            // 
+            this.textName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textName.Location = new System.Drawing.Point(125, 31);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(169, 25);
+            this.textName.TabIndex = 8;
+            // 
+            // textPassword
+            // 
+            this.textPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textPassword.Location = new System.Drawing.Point(125, 84);
+            this.textPassword.Name = "textPassword";
+            this.textPassword.PasswordChar = '*';
+            this.textPassword.Size = new System.Drawing.Size(169, 25);
+            this.textPassword.TabIndex = 9;
+            // 
+            // textConfirmPassword
+            // 
+            this.textConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textConfirmPassword.Location = new System.Drawing.Point(125, 137);
+            this.textConfirmPassword.Name = "textConfirmPassword";
+            this.textConfirmPassword.PasswordChar = '*';
+            this.textConfirmPassword.Size = new System.Drawing.Size(169, 25);
+            this.textConfirmPassword.TabIndex = 10;
+            // 
+            // RegisterForm
+            // 
+            this.AcceptButton = this.btnRegister;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(347, 255);
+            this.Controls.Add(this.textConfirmPassword);
+            this.Controls.Add(this.textPassword);
+            this.Controls.Add(this.textName);
+            this.Controls.Add(this.labelConfirmError);
+            this.Controls.Add(this.labelPasswordError);
+            this.Controls.Add(this.labelNameError);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnRegister);
+            this.Name = "RegisterForm";
+            this.Text = "RegisterForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNameError;
+        private System.Windows.Forms.Label labelPasswordError;
+        private System.Windows.Forms.Label labelConfirmError;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.TextBox textPassword;
+        private System.Windows.Forms.TextBox textConfirmPassword;
+    }
+}
