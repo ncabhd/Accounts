@@ -34,7 +34,7 @@ namespace Accounts
                 }
                 else
                 {
-                    string sql = string.Format("insert into Users Values('{0}','{1}')", textName.Text.Trim(), textPassword.Text.Trim());
+                    string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{3}','{3}','{3}')", textName.Text.Trim(), textPassword.Text.Trim(),textAlimoney.Text.Trim(),0);
                     MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                     DBOperate.connection.Open();
                     int count = cmd.ExecuteNonQuery();
@@ -115,37 +115,5 @@ namespace Accounts
         {
             this.Close();
         }
-
-        private void textPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                bool isNotEmpty = CheckEmpty();
-                if (isNotEmpty == true)
-                {
-                    if (getResist() == true)
-                    {
-                        MessageBox.Show("该用户已经注册，请重新输入注册");
-                        textName.SelectAll();
-                        textName.Focus();
-                    }
-                    else
-                    {
-                        string sql = string.Format("insert into Users Values('{0}','{1}')", textName.Text.Trim(), textPassword.Text.Trim());
-                        MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
-                        DBOperate.connection.Open();
-                        int count = cmd.ExecuteNonQuery();
-                        DBOperate.connection.Close();
-                        if (count == 1)
-                        {
-                            MessageBox.Show("注册成功");
-                            lg.getUserName(textName.Text.Trim());
-                            this.Close();
-                        }
-                    }
-                }
-            }
-        }
-
     }
 }

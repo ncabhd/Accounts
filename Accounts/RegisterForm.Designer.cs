@@ -39,12 +39,14 @@
             this.textName = new System.Windows.Forms.TextBox();
             this.textPassword = new System.Windows.Forms.TextBox();
             this.textConfirmPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textAlimoney = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnRegister
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegister.Location = new System.Drawing.Point(59, 199);
+            this.btnRegister.Location = new System.Drawing.Point(59, 246);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 30);
             this.btnRegister.TabIndex = 0;
@@ -55,7 +57,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancel.Location = new System.Drawing.Point(204, 199);
+            this.btnCancel.Location = new System.Drawing.Point(201, 246);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 30);
             this.btnCancel.TabIndex = 1;
@@ -67,7 +69,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 34);
+            this.label1.Location = new System.Drawing.Point(56, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 2;
@@ -77,7 +79,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 87);
+            this.label2.Location = new System.Drawing.Point(71, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 3;
@@ -87,7 +89,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 140);
+            this.label3.Location = new System.Drawing.Point(41, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 4;
@@ -97,7 +99,7 @@
             // 
             this.labelNameError.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNameError.AutoSize = true;
-            this.labelNameError.Location = new System.Drawing.Point(168, 59);
+            this.labelNameError.Location = new System.Drawing.Point(168, 62);
             this.labelNameError.Name = "labelNameError";
             this.labelNameError.Size = new System.Drawing.Size(82, 15);
             this.labelNameError.TabIndex = 5;
@@ -108,7 +110,7 @@
             // 
             this.labelPasswordError.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelPasswordError.AutoSize = true;
-            this.labelPasswordError.Location = new System.Drawing.Point(171, 112);
+            this.labelPasswordError.Location = new System.Drawing.Point(171, 115);
             this.labelPasswordError.Name = "labelPasswordError";
             this.labelPasswordError.Size = new System.Drawing.Size(67, 15);
             this.labelPasswordError.TabIndex = 6;
@@ -119,7 +121,7 @@
             // 
             this.labelConfirmError.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelConfirmError.AutoSize = true;
-            this.labelConfirmError.Location = new System.Drawing.Point(153, 165);
+            this.labelConfirmError.Location = new System.Drawing.Point(153, 168);
             this.labelConfirmError.Name = "labelConfirmError";
             this.labelConfirmError.Size = new System.Drawing.Size(97, 15);
             this.labelConfirmError.TabIndex = 7;
@@ -129,7 +131,8 @@
             // textName
             // 
             this.textName.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textName.Location = new System.Drawing.Point(125, 31);
+            this.textName.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.textName.Location = new System.Drawing.Point(125, 34);
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(169, 25);
             this.textName.TabIndex = 8;
@@ -137,7 +140,7 @@
             // textPassword
             // 
             this.textPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textPassword.Location = new System.Drawing.Point(125, 84);
+            this.textPassword.Location = new System.Drawing.Point(125, 87);
             this.textPassword.Name = "textPassword";
             this.textPassword.PasswordChar = '*';
             this.textPassword.Size = new System.Drawing.Size(169, 25);
@@ -146,18 +149,37 @@
             // textConfirmPassword
             // 
             this.textConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textConfirmPassword.Location = new System.Drawing.Point(125, 137);
+            this.textConfirmPassword.Location = new System.Drawing.Point(125, 140);
             this.textConfirmPassword.Name = "textConfirmPassword";
             this.textConfirmPassword.PasswordChar = '*';
             this.textConfirmPassword.Size = new System.Drawing.Size(169, 25);
             this.textConfirmPassword.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 197);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "每月生活费：";
+            // 
+            // textAlimoney
+            // 
+            this.textAlimoney.Location = new System.Drawing.Point(125, 194);
+            this.textAlimoney.Name = "textAlimoney";
+            this.textAlimoney.Size = new System.Drawing.Size(169, 25);
+            this.textAlimoney.TabIndex = 12;
+            this.textAlimoney.Text = "0";
             // 
             // RegisterForm
             // 
             this.AcceptButton = this.btnRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 255);
+            this.ClientSize = new System.Drawing.Size(347, 315);
+            this.Controls.Add(this.textAlimoney);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textConfirmPassword);
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.textName);
@@ -189,5 +211,7 @@
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.TextBox textPassword;
         private System.Windows.Forms.TextBox textConfirmPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textAlimoney;
     }
 }

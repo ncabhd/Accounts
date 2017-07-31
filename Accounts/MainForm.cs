@@ -49,7 +49,7 @@ namespace Accounts
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btnDelete.Enabled = true;
-            toolStripButtonDelete.Enabled = true;
+            //toolStripButtonDelete.Enabled = true;
         }
 
         //打开添加的窗口

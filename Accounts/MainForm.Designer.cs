@@ -42,7 +42,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.toolStripButtonDelete = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,21 +168,11 @@
             this.textBox3.Size = new System.Drawing.Size(90, 25);
             this.textBox3.TabIndex = 11;
             // 
-            // toolStripButtonDelete
-            // 
-            this.toolStripButtonDelete.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStripButtonDelete.Location = new System.Drawing.Point(0, 0);
-            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(819, 25);
-            this.toolStripButtonDelete.TabIndex = 12;
-            this.toolStripButtonDelete.Text = "toolStrip1";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 436);
-            this.Controls.Add(this.toolStripButtonDelete);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -221,6 +210,5 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ToolStrip toolStripButtonDelete;
     }
 }

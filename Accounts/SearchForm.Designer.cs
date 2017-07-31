@@ -36,7 +36,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(32, 83);
+            this.btnSearch.Location = new System.Drawing.Point(41, 83);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(77, 31);
             this.btnSearch.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(135, 83);
+            this.btnCancel.Location = new System.Drawing.Point(148, 83);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(77, 31);
             this.btnCancel.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             this.radioButtonIn.AutoSize = true;
             this.radioButtonIn.Checked = true;
-            this.radioButtonIn.Location = new System.Drawing.Point(47, 31);
+            this.radioButtonIn.Location = new System.Drawing.Point(60, 31);
             this.radioButtonIn.Name = "radioButtonIn";
             this.radioButtonIn.Size = new System.Drawing.Size(58, 19);
             this.radioButtonIn.TabIndex = 2;
@@ -69,7 +69,7 @@
             // radioButtonOut
             // 
             this.radioButtonOut.AutoSize = true;
-            this.radioButtonOut.Location = new System.Drawing.Point(154, 31);
+            this.radioButtonOut.Location = new System.Drawing.Point(158, 31);
             this.radioButtonOut.Name = "radioButtonOut";
             this.radioButtonOut.Size = new System.Drawing.Size(58, 19);
             this.radioButtonOut.TabIndex = 3;
