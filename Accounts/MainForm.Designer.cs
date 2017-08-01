@@ -37,11 +37,11 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textIncome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textSum = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,13 +124,13 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "当前显示内容统计：收入";
             // 
-            // textBox1
+            // textIncome
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Location = new System.Drawing.Point(417, 392);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(90, 25);
-            this.textBox1.TabIndex = 7;
+            this.textIncome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textIncome.Location = new System.Drawing.Point(417, 392);
+            this.textIncome.Name = "textIncome";
+            this.textIncome.Size = new System.Drawing.Size(90, 25);
+            this.textIncome.TabIndex = 7;
             // 
             // label2
             // 
@@ -142,13 +142,13 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "支取";
             // 
-            // textBox2
+            // textConsume
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Location = new System.Drawing.Point(556, 392);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(90, 25);
-            this.textBox2.TabIndex = 9;
+            this.textConsume.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textConsume.Location = new System.Drawing.Point(556, 392);
+            this.textConsume.Name = "textConsume";
+            this.textConsume.Size = new System.Drawing.Size(90, 25);
+            this.textConsume.TabIndex = 9;
             // 
             // label3
             // 
@@ -160,24 +160,24 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "剩余";
             // 
-            // textBox3
+            // textSum
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(695, 392);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 25);
-            this.textBox3.TabIndex = 11;
+            this.textSum.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textSum.Location = new System.Drawing.Point(695, 392);
+            this.textSum.Name = "textSum";
+            this.textSum.Size = new System.Drawing.Size(90, 25);
+            this.textSum.TabIndex = 11;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 436);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textSum);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textConsume);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textIncome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFind);
@@ -205,10 +205,10 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textIncome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textConsume;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textSum;
     }
 }

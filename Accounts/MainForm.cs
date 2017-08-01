@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Accounts
 {
     public partial class MainForm : Form
     {
+        public double income = 0, consume = 0, sum = 0;
         public LoginForm lg;
         public string User;
         public MainForm()
@@ -26,15 +29,42 @@ namespace Accounts
         }
 
 
-        //开始的界面，显示时间
+        //开始的界面
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //时间
             DateTime dt = DateTime.Now;
             String date = dt.ToLongDateString();
             String time = dt.ToLongTimeString();
             labelTime.Text = date + time;
             
             dataGridView1.ClearSelection();
+
+            //收入支取剩余
+            showMoney();
+        }
+
+        private void showMoney()
+        {
+            string sql = string.Format("select sum from Users where UserName='{0}'", User);
+            MySqlCommand cmd = new MySqlCommand(sql,DBOperate.connection);
+            DBOperate.connection.Open();
+            sum = Convert.ToDouble(cmd.ExecuteScalar());
+            sql = string.Format("select Credit from Users where UserName='{0}'", User);
+            cmd = new MySqlCommand(sql, DBOperate.connection);
+            income = Convert.ToDouble(cmd.ExecuteScalar());
+            sql = string.Format("select Debit from Users where UserName='{0}'", User);
+            cmd = new MySqlCommand(sql, DBOperate.connection);
+            consume = Convert.ToDouble(cmd.ExecuteScalar());
+            Money();
+            DBOperate.connection.Close();
+        }
+
+        public void Money()
+        {
+            textIncome.Text = income.ToString();
+            textConsume.Text = consume.ToString();
+            textSum.Text = sum.ToString();
         }
 
         //每秒显示

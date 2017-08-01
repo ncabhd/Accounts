@@ -122,13 +122,30 @@ namespace Accounts
             if (isNull == true)
             {
                 string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();
-                string sql = string.Format("insert into Consume values('{0}','{1}','{2}','{3}','{4}','{5}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textBoxMoney.Text.Trim(), textBoxDescription.Text.Trim(),User);
+                string sql = string.Format("insert into Consume values('{0}','{1}','{2}','{3}','{4}','{5}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textBoxDescription.Text.Trim(),User);
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("成功插入");
+                if(comboBoxLei.Text=="收入")
+                {
+                    mf.income = mf.income + Convert.ToDouble(textMoney.Text);
+                    mf.sum = mf.sum + Convert.ToDouble(textMoney.Text);
+                    sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, User, mf.sum);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    cmd.ExecuteNonQuery();
+                    mf.Money();
+                }
+                if(comboBoxLei.Text=="支取")
+                {
+                    mf.consume = mf.consume + Convert.ToDouble(textMoney.Text);
+                    mf.sum = mf.sum - Convert.ToDouble(textMoney.Text);
+                    sql = string.Format("update Users set Debit ='{0}',sum='{1}' where UserName='{2}'", mf.consume, mf.sum, User);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    cmd.ExecuteNonQuery();
+                    mf.Money();
+                }
+                MessageBox.Show("成功添加");
                 //mf.GetGridviewAll();
-                //mf.showTotalMoney();
                 DBOperate.connection.Close();
                 this.Close();
             }
@@ -161,7 +178,7 @@ namespace Accounts
             {
                 isnull = false;
             }
-            if (textBoxMoney.Text.Trim() == string.Empty)
+            if (textMoney.Text.Trim() == string.Empty)
             {
                 isnull = false;
             }

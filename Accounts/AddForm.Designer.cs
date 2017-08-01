@@ -42,7 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxMoney = new System.Windows.Forms.TextBox();
+            this.textMoney = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -173,13 +173,13 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "金额";
             // 
-            // textBoxMoney
+            // textMoney
             // 
-            this.textBoxMoney.Location = new System.Drawing.Point(95, 123);
-            this.textBoxMoney.Name = "textBoxMoney";
-            this.textBoxMoney.Size = new System.Drawing.Size(129, 25);
-            this.textBoxMoney.TabIndex = 14;
-            this.textBoxMoney.Text = "0";
+            this.textMoney.Location = new System.Drawing.Point(95, 123);
+            this.textMoney.Name = "textMoney";
+            this.textMoney.Size = new System.Drawing.Size(129, 25);
+            this.textMoney.TabIndex = 14;
+            this.textMoney.Text = "0";
             // 
             // label8
             // 
@@ -205,7 +205,7 @@
             this.ClientSize = new System.Drawing.Size(432, 339);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBoxMoney);
+            this.Controls.Add(this.textMoney);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBoxDate);
             this.Controls.Add(this.label6);
@@ -245,7 +245,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxMoney;
+        private System.Windows.Forms.TextBox textMoney;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxDescription;
     }
