@@ -42,6 +42,12 @@
             this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSum = new System.Windows.Forms.TextBox();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +55,7 @@
             // 
             this.labelTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(22, 395);
+            this.labelTime.Location = new System.Drawing.Point(45, 395);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(79, 15);
             this.labelTime.TabIndex = 0;
@@ -65,17 +71,24 @@
             // 
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(226, 118);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnDate,
+            this.ColumnLei,
+            this.ColumnMu,
+            this.ColumnMoney,
+            this.ColumnBei});
+            this.dataGridView1.Location = new System.Drawing.Point(249, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(573, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 258);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnInsert
             // 
             this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInsert.Location = new System.Drawing.Point(26, 138);
+            this.btnInsert.Location = new System.Drawing.Point(49, 138);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(170, 42);
             this.btnInsert.TabIndex = 2;
@@ -86,7 +99,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdate.Location = new System.Drawing.Point(26, 196);
+            this.btnUpdate.Location = new System.Drawing.Point(49, 196);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(169, 42);
             this.btnUpdate.TabIndex = 3;
@@ -96,7 +109,7 @@
             // btnFind
             // 
             this.btnFind.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFind.Location = new System.Drawing.Point(25, 253);
+            this.btnFind.Location = new System.Drawing.Point(48, 253);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(169, 42);
             this.btnFind.TabIndex = 4;
@@ -107,7 +120,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Location = new System.Drawing.Point(25, 312);
+            this.btnDelete.Location = new System.Drawing.Point(48, 312);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(169, 42);
             this.btnDelete.TabIndex = 5;
@@ -118,7 +131,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(239, 395);
+            this.label1.Location = new System.Drawing.Point(262, 395);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -127,7 +140,7 @@
             // textIncome
             // 
             this.textIncome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textIncome.Location = new System.Drawing.Point(417, 392);
+            this.textIncome.Location = new System.Drawing.Point(440, 392);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
@@ -136,7 +149,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 395);
+            this.label2.Location = new System.Drawing.Point(536, 395);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -145,7 +158,7 @@
             // textConsume
             // 
             this.textConsume.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textConsume.Location = new System.Drawing.Point(556, 392);
+            this.textConsume.Location = new System.Drawing.Point(579, 392);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
@@ -154,7 +167,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(652, 395);
+            this.label3.Location = new System.Drawing.Point(675, 395);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -163,16 +176,46 @@
             // textSum
             // 
             this.textSum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textSum.Location = new System.Drawing.Point(695, 392);
+            this.textSum.Location = new System.Drawing.Point(718, 392);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "序号";
+            this.ColumnID.Name = "ColumnID";
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日期";
+            this.ColumnDate.Name = "ColumnDate";
+            // 
+            // ColumnLei
+            // 
+            this.ColumnLei.HeaderText = "类别";
+            this.ColumnLei.Name = "ColumnLei";
+            // 
+            // ColumnMu
+            // 
+            this.ColumnMu.HeaderText = "收支项目";
+            this.ColumnMu.Name = "ColumnMu";
+            // 
+            // ColumnMoney
+            // 
+            this.ColumnMoney.HeaderText = "金钱";
+            this.ColumnMoney.Name = "ColumnMoney";
+            // 
+            // ColumnBei
+            // 
+            this.ColumnBei.HeaderText = "备注";
+            this.ColumnBei.Name = "ColumnBei";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 436);
+            this.ClientSize = new System.Drawing.Size(922, 436);
             this.Controls.Add(this.textSum);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textConsume);
@@ -210,5 +253,11 @@
         private System.Windows.Forms.TextBox textConsume;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textSum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLei;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMoney;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBei;
     }
 }
