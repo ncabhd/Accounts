@@ -16,6 +16,7 @@ namespace Accounts
     public partial class MainForm : Form
     {
         public double income = 0, consume = 0, sum = 0;
+        public  int i = 0;
         public LoginForm lg;
         public string User;
         public MainForm()
@@ -37,7 +38,9 @@ namespace Accounts
             String date = dt.ToLongDateString();
             String time = dt.ToLongTimeString();
             labelTime.Text = date + time;
-            
+
+            PopulateDataGridView();
+
             dataGridView1.ClearSelection();
 
             //收入支取剩余
@@ -111,6 +114,34 @@ namespace Accounts
             {
                 e.Cancel = true;
             }
+        }
+
+        private void PopulateDataGridView()
+        {
+            string sql = string.Format("select * from Consume where User='{0}'", User);
+            MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+            DBOperate.connection.Open();
+            DataSet ds = new DataSet();
+            MySqlDataReader sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                i++;
+                string[] row = new string[6];
+                row[0] = i.ToString();
+                row[1] = sdr["ConsumeDate"].ToString();
+                row[2] = sdr["Type"].ToString();
+                row[3] = sdr["Catagory"].ToString();
+                row[4] = sdr["Money"].ToString();
+                row[5] = sdr["Description"].ToString();
+                dataGridView1.Rows.Add(row);
+            }
+            DBOperate.connection.Close();
+        }
+
+        public void insertData(string[] row)
+        {
+            row[0] = (i + 1).ToString();
+            dataGridView1.Rows.Add(row);
         }
     }
 }

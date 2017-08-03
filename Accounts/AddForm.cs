@@ -122,7 +122,7 @@ namespace Accounts
             if (isNull == true)
             {
                 string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();
-                string sql = string.Format("insert into Consume values('{0}','{1}','{2}','{3}','{4}','{5}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textBoxDescription.Text.Trim(),User);
+                string sql = string.Format("insert into Consume values('{0}','{1}','{2}','{3}','{4}','{5}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(),User);
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
@@ -144,6 +144,16 @@ namespace Accounts
                     cmd.ExecuteNonQuery();
                     mf.Money();
                 }
+
+                string[] row = new string[6];
+                row[1] = data;
+                row[2] = comboBoxLei.Text.Trim();
+                row[3] = comboBoxItem.Text.Trim();
+                row[4] = textMoney.Text.Trim();
+                row[5] = textDescription.Text.Trim();
+                mf.insertData(row);
+
+
                 MessageBox.Show("成功添加");
                 //mf.GetGridviewAll();
                 DBOperate.connection.Close();

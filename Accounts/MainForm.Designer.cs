@@ -55,7 +55,7 @@
             // 
             this.labelTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(45, 395);
+            this.labelTime.Location = new System.Drawing.Point(17, 391);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(79, 15);
             this.labelTime.TabIndex = 0;
@@ -78,19 +78,19 @@
             this.ColumnMu,
             this.ColumnMoney,
             this.ColumnBei});
-            this.dataGridView1.Location = new System.Drawing.Point(249, 118);
+            this.dataGridView1.Location = new System.Drawing.Point(161, 114);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(749, 258);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnInsert
             // 
             this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInsert.Location = new System.Drawing.Point(49, 138);
+            this.btnInsert.Location = new System.Drawing.Point(12, 134);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(170, 42);
+            this.btnInsert.Size = new System.Drawing.Size(143, 42);
             this.btnInsert.TabIndex = 2;
             this.btnInsert.Text = "新 增 条 目";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdate.Location = new System.Drawing.Point(49, 196);
+            this.btnUpdate.Location = new System.Drawing.Point(12, 191);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(169, 42);
+            this.btnUpdate.Size = new System.Drawing.Size(143, 42);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "修 改 条 目";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@
             // btnFind
             // 
             this.btnFind.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFind.Location = new System.Drawing.Point(48, 253);
+            this.btnFind.Location = new System.Drawing.Point(12, 248);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(169, 42);
+            this.btnFind.Size = new System.Drawing.Size(143, 42);
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "查 找 条 目";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -120,9 +120,9 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Location = new System.Drawing.Point(48, 312);
+            this.btnDelete.Location = new System.Drawing.Point(12, 308);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(169, 42);
+            this.btnDelete.Size = new System.Drawing.Size(143, 42);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "删 除 条 目";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 395);
+            this.label1.Location = new System.Drawing.Point(253, 391);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -140,7 +140,7 @@
             // textIncome
             // 
             this.textIncome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textIncome.Location = new System.Drawing.Point(440, 392);
+            this.textIncome.Location = new System.Drawing.Point(431, 388);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(536, 395);
+            this.label2.Location = new System.Drawing.Point(527, 391);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -158,7 +158,7 @@
             // textConsume
             // 
             this.textConsume.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textConsume.Location = new System.Drawing.Point(579, 392);
+            this.textConsume.Location = new System.Drawing.Point(570, 388);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
@@ -167,7 +167,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(675, 395);
+            this.label3.Location = new System.Drawing.Point(666, 391);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -176,7 +176,7 @@
             // textSum
             // 
             this.textSum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textSum.Location = new System.Drawing.Point(718, 392);
+            this.textSum.Location = new System.Drawing.Point(709, 388);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
@@ -185,16 +185,19 @@
             // 
             this.ColumnID.HeaderText = "序号";
             this.ColumnID.Name = "ColumnID";
+            this.ColumnID.Width = 60;
             // 
             // ColumnDate
             // 
             this.ColumnDate.HeaderText = "日期";
             this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.Width = 70;
             // 
             // ColumnLei
             // 
             this.ColumnLei.HeaderText = "类别";
             this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.Width = 60;
             // 
             // ColumnMu
             // 
@@ -205,11 +208,13 @@
             // 
             this.ColumnMoney.HeaderText = "金钱";
             this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.Width = 70;
             // 
             // ColumnBei
             // 
             this.ColumnBei.HeaderText = "备注";
             this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.Width = 200;
             // 
             // MainForm
             // 

@@ -44,7 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textMoney = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.textDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -190,20 +190,21 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "备注";
             // 
-            // textBoxDescription
+            // textDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(95, 171);
-            this.textBoxDescription.Multiline = true;
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(291, 87);
-            this.textBoxDescription.TabIndex = 16;
+            this.textDescription.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.textDescription.Location = new System.Drawing.Point(95, 171);
+            this.textDescription.Multiline = true;
+            this.textDescription.Name = "textDescription";
+            this.textDescription.Size = new System.Drawing.Size(291, 87);
+            this.textDescription.TabIndex = 16;
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 339);
-            this.Controls.Add(this.textBoxDescription);
+            this.Controls.Add(this.textDescription);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textMoney);
             this.Controls.Add(this.label7);
@@ -247,6 +248,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textMoney;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.TextBox textDescription;
     }
 }
