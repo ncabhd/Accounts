@@ -41,7 +41,7 @@ namespace Accounts
 
             PopulateDataGridView();
 
-            dataGridView1.ClearSelection();
+            //dataGridView1.ClearSelection();
 
             //收入支取剩余
             showMoney();
@@ -116,7 +116,7 @@ namespace Accounts
             }
         }
 
-        private void PopulateDataGridView()
+        public void PopulateDataGridView()
         {
             string sql = string.Format("select * from Consume where User='{0}'", User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
@@ -138,10 +138,41 @@ namespace Accounts
             DBOperate.connection.Close();
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count != 0)
+            {
+                string sql = string.Format("delete * from Consume where User='{0}' and ");
+            }
+        }
+
         public void insertData(string[] row)
         {
             row[0] = (i + 1).ToString();
             dataGridView1.Rows.Add(row);
+        }
+
+        public void SearchData(string search)
+        {
+            dataGridView1.Rows.Clear();
+            string sql = string.Format("Select * from Consume where Type='{0}' and User='{1}'", search, User);
+            MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+            DBOperate.connection.Open();
+            DataSet ds = new DataSet();
+            MySqlDataReader sdr = cmd.ExecuteReader();
+            while (sdr.Read())
+            {
+                i++;
+                string[] row = new string[6];
+                row[0] = i.ToString();
+                row[1] = sdr["ConsumeDate"].ToString();
+                row[2] = sdr["Type"].ToString();
+                row[3] = sdr["Catagory"].ToString();
+                row[4] = sdr["Money"].ToString();
+                row[5] = sdr["Description"].ToString();
+                dataGridView1.Rows.Add(row);
+            }
+            DBOperate.connection.Close();
         }
     }
 }

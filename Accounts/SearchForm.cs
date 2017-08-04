@@ -39,5 +39,18 @@ namespace Accounts
         {
             this.Close();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (ss == "全部")
+            {
+                mf.PopulateDataGridView();
+            }
+            else
+            {
+                mf.SearchData(ss);
+            }
+            this.Close();
+        }
     }
 }

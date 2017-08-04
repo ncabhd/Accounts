@@ -32,6 +32,12 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
@@ -42,12 +48,6 @@
             this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSum = new System.Windows.Forms.TextBox();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +84,41 @@
             this.dataGridView1.Size = new System.Drawing.Size(749, 258);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "序号";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.Width = 60;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日期";
+            this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.Width = 70;
+            // 
+            // ColumnLei
+            // 
+            this.ColumnLei.HeaderText = "类别";
+            this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.Width = 60;
+            // 
+            // ColumnMu
+            // 
+            this.ColumnMu.HeaderText = "收支项目";
+            this.ColumnMu.Name = "ColumnMu";
+            // 
+            // ColumnMoney
+            // 
+            this.ColumnMoney.HeaderText = "金钱";
+            this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.Width = 70;
+            // 
+            // ColumnBei
+            // 
+            this.ColumnBei.HeaderText = "备注";
+            this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.Width = 200;
             // 
             // btnInsert
             // 
@@ -126,6 +161,7 @@
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "删 除 条 目";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label1
             // 
@@ -180,41 +216,6 @@
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "序号";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.Width = 60;
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "日期";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.Width = 70;
-            // 
-            // ColumnLei
-            // 
-            this.ColumnLei.HeaderText = "类别";
-            this.ColumnLei.Name = "ColumnLei";
-            this.ColumnLei.Width = 60;
-            // 
-            // ColumnMu
-            // 
-            this.ColumnMu.HeaderText = "收支项目";
-            this.ColumnMu.Name = "ColumnMu";
-            // 
-            // ColumnMoney
-            // 
-            this.ColumnMoney.HeaderText = "金钱";
-            this.ColumnMoney.Name = "ColumnMoney";
-            this.ColumnMoney.Width = 70;
-            // 
-            // ColumnBei
-            // 
-            this.ColumnBei.HeaderText = "备注";
-            this.ColumnBei.Name = "ColumnBei";
-            this.ColumnBei.Width = 200;
             // 
             // MainForm
             // 

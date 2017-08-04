@@ -32,20 +32,22 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.radioButtonIn = new System.Windows.Forms.RadioButton();
             this.radioButtonOut = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(41, 83);
+            this.btnSearch.Location = new System.Drawing.Point(72, 75);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(77, 31);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(148, 83);
+            this.btnCancel.Location = new System.Drawing.Point(199, 75);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(77, 31);
             this.btnCancel.TabIndex = 1;
@@ -77,11 +79,23 @@
             this.radioButtonOut.UseVisualStyleBackColor = true;
             this.radioButtonOut.CheckedChanged += new System.EventHandler(this.radioButtonOut_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(240, 31);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(58, 19);
+            this.radioButton1.TabIndex = 4;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "全部";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 137);
+            this.ClientSize = new System.Drawing.Size(345, 132);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.radioButtonOut);
             this.Controls.Add(this.radioButtonIn);
             this.Controls.Add(this.btnCancel);
@@ -101,5 +115,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.RadioButton radioButtonIn;
         private System.Windows.Forms.RadioButton radioButtonOut;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
