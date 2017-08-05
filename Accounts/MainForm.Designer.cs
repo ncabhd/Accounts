@@ -48,6 +48,7 @@
             this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSum = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -77,7 +79,8 @@
             this.ColumnLei,
             this.ColumnMu,
             this.ColumnMoney,
-            this.ColumnBei});
+            this.ColumnBei,
+            this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(161, 114);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
@@ -217,6 +220,12 @@
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -265,5 +274,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBei;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

@@ -19,6 +19,7 @@ namespace Accounts
         public  int i = 0;
         public LoginForm lg;
         public string User;
+        public int ID;
         public MainForm()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace Accounts
             showMoney();
         }
 
+        //显示收入支取总和
         private void showMoney()
         {
             string sql = string.Format("select sum from Users where UserName='{0}'", User);
@@ -118,7 +120,9 @@ namespace Accounts
 
         public void PopulateDataGridView()
         {
-            string sql = string.Format("select * from Consume where User='{0}'", User);
+            i = 0;
+            dataGridView1.Rows.Clear();
+            string sql = string.Format("select * from {0}", User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
             DataSet ds = new DataSet();
@@ -126,13 +130,14 @@ namespace Accounts
             while (sdr.Read())
             {
                 i++;
-                string[] row = new string[6];
+                string[] row = new string[7];
                 row[0] = i.ToString();
                 row[1] = sdr["ConsumeDate"].ToString();
                 row[2] = sdr["Type"].ToString();
                 row[3] = sdr["Catagory"].ToString();
                 row[4] = sdr["Money"].ToString();
                 row[5] = sdr["Description"].ToString();
+                row[6] = sdr["ID"].ToString();
                 dataGridView1.Rows.Add(row);
             }
             DBOperate.connection.Close();
@@ -142,20 +147,29 @@ namespace Accounts
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                string sql = string.Format("delete * from Consume where User='{0}' and ");
+                int a = dataGridView1.CurrentRow.Index;
+                string sql = string.Format("delete from {0} where ID='{1}'", User, dataGridView1.Rows[a].Cells[6].Value.ToString());
+                MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+                DBOperate.connection.Open();
+                cmd.ExecuteNonQuery();
+                DBOperate.connection.Close();
+                PopulateDataGridView();
+
             }
         }
 
         public void insertData(string[] row)
         {
-            row[0] = (i + 1).ToString();
+            i++;
+            row[0] = i.ToString();
             dataGridView1.Rows.Add(row);
         }
 
         public void SearchData(string search)
         {
+            i = 0;
             dataGridView1.Rows.Clear();
-            string sql = string.Format("Select * from Consume where Type='{0}' and User='{1}'", search, User);
+            string sql = string.Format("Select * from {1} where Type='{0}'", search, User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
             DataSet ds = new DataSet();

@@ -52,5 +52,10 @@ namespace Accounts
             }
             this.Close();
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            ss = radioButtonAll.Text.Trim();
+        }
     }
 }

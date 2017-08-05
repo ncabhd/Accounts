@@ -32,7 +32,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.radioButtonIn = new System.Windows.Forms.RadioButton();
             this.radioButtonOut = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAll = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -79,23 +79,24 @@
             this.radioButtonOut.UseVisualStyleBackColor = true;
             this.radioButtonOut.CheckedChanged += new System.EventHandler(this.radioButtonOut_CheckedChanged);
             // 
-            // radioButton1
+            // radioButtonAll
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(240, 31);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 19);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "全部";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonAll.AutoSize = true;
+            this.radioButtonAll.Location = new System.Drawing.Point(240, 31);
+            this.radioButtonAll.Name = "radioButtonAll";
+            this.radioButtonAll.Size = new System.Drawing.Size(58, 19);
+            this.radioButtonAll.TabIndex = 4;
+            this.radioButtonAll.TabStop = true;
+            this.radioButtonAll.Text = "全部";
+            this.radioButtonAll.UseVisualStyleBackColor = true;
+            this.radioButtonAll.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 132);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButtonAll);
             this.Controls.Add(this.radioButtonOut);
             this.Controls.Add(this.radioButtonIn);
             this.Controls.Add(this.btnCancel);
@@ -115,6 +116,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.RadioButton radioButtonIn;
         private System.Windows.Forms.RadioButton radioButtonOut;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButtonAll;
     }
 }

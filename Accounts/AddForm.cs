@@ -56,7 +56,7 @@ namespace Accounts
             comboBoxItem.Items.Clear();             //清空项目组合框的内容
             if (comboBoxLei.SelectedIndex == 0)     //如果是收入
             {
-                comboBoxItem.Items.Add("1");
+                comboBoxItem.Items.Add("兼职");
                 comboBoxItem.Items.Add("2");
             }
             else
@@ -122,7 +122,7 @@ namespace Accounts
             if (isNull == true)
             {
                 string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();
-                string sql = string.Format("insert into Consume values('{0}','{1}','{2}','{3}','{4}','{5}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(),User);
+                string sql = string.Format("insert into {5} (ConsumeDate,Type,Catagory,Money,Description) values('{0}','{1}','{2}','{3}','{4}')", data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(), User);
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
