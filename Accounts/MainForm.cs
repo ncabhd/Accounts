@@ -122,7 +122,7 @@ namespace Accounts
         {
             i = 0;
             dataGridView1.Rows.Clear();
-            string sql = string.Format("select * from {0}", User);
+            string sql = string.Format("select * from {0} order by ConsumeDate desc", User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
             DataSet ds = new DataSet();
@@ -147,29 +147,34 @@ namespace Accounts
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
-                int a = dataGridView1.CurrentRow.Index;
-                string sql = string.Format("delete from {0} where ID='{1}'", User, dataGridView1.Rows[a].Cells[6].Value.ToString());
-                MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
-                DBOperate.connection.Open();
-                cmd.ExecuteNonQuery();
-                DBOperate.connection.Close();
-                PopulateDataGridView();
-
+                DialogResult dr = MessageBox.Show("确认删除", "提示", MessageBoxButtons.OKCancel);
+                if (dr == DialogResult.OK)
+                {
+                    int a = dataGridView1.CurrentRow.Index;
+                    string sql = string.Format("delete from {0} where ID='{1}'", User, dataGridView1.Rows[a].Cells[6].Value.ToString());
+                    MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+                    PopulateDataGridView();
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择一条后再删除");
             }
         }
 
         public void insertData(string[] row)
         {
-            i++;
-            row[0] = i.ToString();
-            dataGridView1.Rows.Add(row);
+            PopulateDataGridView();
         }
 
         public void SearchData(string search)
         {
             i = 0;
             dataGridView1.Rows.Clear();
-            string sql = string.Format("Select * from {1} where Type='{0}'", search, User);
+            string sql = string.Format("Select * from {1} where Type='{0}' order by ConsumeDate desc", search, User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
             DataSet ds = new DataSet();

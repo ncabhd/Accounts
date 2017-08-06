@@ -151,12 +151,9 @@ namespace Accounts
                 row[3] = comboBoxItem.Text.Trim();
                 row[4] = textMoney.Text.Trim();
                 row[5] = textDescription.Text.Trim();
-                mf.insertData(row);
-
-
-                MessageBox.Show("成功添加");
-                //mf.GetGridviewAll();
                 DBOperate.connection.Close();
+                mf.insertData(row);
+                MessageBox.Show("成功添加");
                 this.Close();
             }
             else

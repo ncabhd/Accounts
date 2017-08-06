@@ -32,14 +32,7 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,15 +41,20 @@
             this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSum = new System.Windows.Forms.TextBox();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTime
             // 
-            this.labelTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(17, 391);
+            this.labelTime.Location = new System.Drawing.Point(17, 309);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(79, 15);
             this.labelTime.TabIndex = 0;
@@ -71,7 +69,6 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnID,
@@ -81,75 +78,28 @@
             this.ColumnMoney,
             this.ColumnBei,
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(161, 114);
+            this.dataGridView1.Location = new System.Drawing.Point(161, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(749, 258);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "序号";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.Width = 60;
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "日期";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.Width = 70;
-            // 
-            // ColumnLei
-            // 
-            this.ColumnLei.HeaderText = "类别";
-            this.ColumnLei.Name = "ColumnLei";
-            this.ColumnLei.Width = 60;
-            // 
-            // ColumnMu
-            // 
-            this.ColumnMu.HeaderText = "收支项目";
-            this.ColumnMu.Name = "ColumnMu";
-            // 
-            // ColumnMoney
-            // 
-            this.ColumnMoney.HeaderText = "金钱";
-            this.ColumnMoney.Name = "ColumnMoney";
-            this.ColumnMoney.Width = 70;
-            // 
-            // ColumnBei
-            // 
-            this.ColumnBei.HeaderText = "备注";
-            this.ColumnBei.Name = "ColumnBei";
-            this.ColumnBei.Width = 200;
-            // 
             // btnInsert
             // 
-            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInsert.Location = new System.Drawing.Point(12, 134);
+            this.btnInsert.Location = new System.Drawing.Point(12, 45);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(143, 42);
+            this.btnInsert.Size = new System.Drawing.Size(143, 62);
             this.btnInsert.TabIndex = 2;
             this.btnInsert.Text = "新 增 条 目";
             this.btnInsert.UseVisualStyleBackColor = true;
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUpdate.Location = new System.Drawing.Point(12, 191);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(143, 42);
-            this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "修 改 条 目";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnFind
             // 
-            this.btnFind.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFind.Location = new System.Drawing.Point(12, 248);
+            this.btnFind.Location = new System.Drawing.Point(12, 126);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(143, 42);
+            this.btnFind.Size = new System.Drawing.Size(143, 61);
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "查 找 条 目";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -157,10 +107,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDelete.Location = new System.Drawing.Point(12, 308);
+            this.btnDelete.Location = new System.Drawing.Point(12, 207);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 42);
+            this.btnDelete.Size = new System.Drawing.Size(143, 61);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "删 除 条 目";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -168,9 +117,8 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(253, 391);
+            this.label1.Location = new System.Drawing.Point(253, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -178,17 +126,15 @@
             // 
             // textIncome
             // 
-            this.textIncome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textIncome.Location = new System.Drawing.Point(431, 388);
+            this.textIncome.Location = new System.Drawing.Point(431, 306);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 391);
+            this.label2.Location = new System.Drawing.Point(527, 309);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -196,17 +142,15 @@
             // 
             // textConsume
             // 
-            this.textConsume.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textConsume.Location = new System.Drawing.Point(570, 388);
+            this.textConsume.Location = new System.Drawing.Point(570, 306);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(666, 391);
+            this.label3.Location = new System.Drawing.Point(666, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -214,11 +158,46 @@
             // 
             // textSum
             // 
-            this.textSum.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textSum.Location = new System.Drawing.Point(709, 388);
+            this.textSum.Location = new System.Drawing.Point(709, 306);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "序号";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.Width = 55;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日期";
+            this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.Width = 65;
+            // 
+            // ColumnLei
+            // 
+            this.ColumnLei.HeaderText = "类别";
+            this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.Width = 55;
+            // 
+            // ColumnMu
+            // 
+            this.ColumnMu.HeaderText = "收支项目";
+            this.ColumnMu.Name = "ColumnMu";
+            this.ColumnMu.Width = 80;
+            // 
+            // ColumnMoney
+            // 
+            this.ColumnMoney.HeaderText = "金钱";
+            this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.Width = 65;
+            // 
+            // ColumnBei
+            // 
+            this.ColumnBei.HeaderText = "备注";
+            this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.Width = 180;
             // 
             // Column1
             // 
@@ -230,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 436);
+            this.ClientSize = new System.Drawing.Size(922, 356);
             this.Controls.Add(this.textSum);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textConsume);
@@ -239,7 +218,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnFind);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelTime);
@@ -259,7 +237,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label1;
