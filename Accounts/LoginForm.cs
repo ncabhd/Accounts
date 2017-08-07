@@ -68,6 +68,15 @@ namespace Accounts
                 cmd.ExecuteNonQuery();
                 m_db.Connection.Close();
             }
+            else
+            {
+                setDataBase();
+                string sql = string.Format("update SavePasswords set UserName='{0}',UserPassword='{1}'", textName.Text.Trim(), textPassword.Text.Trim());
+                SQLiteCommand cmd = new SQLiteCommand(sql, m_db.Connection);
+                m_db.Connection.Open();
+                cmd.ExecuteNonQuery();
+                m_db.Connection.Close();
+            }
         }
 
         public void setDataBase()
