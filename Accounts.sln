@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts", "Accounts\Accounts.csproj", "{98AB161C-49E1-4DB8-9BF7-9867FDF67098}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{7FB6A416-5610-4947-B128-5310D3F00EB7}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{10239839-A591-45BF-A404-12F327C95A2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,10 @@ Global
 		{98AB161C-49E1-4DB8-9BF7-9867FDF67098}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98AB161C-49E1-4DB8-9BF7-9867FDF67098}.Release|x64.ActiveCfg = Release|Any CPU
 		{98AB161C-49E1-4DB8-9BF7-9867FDF67098}.Release|x64.Build.0 = Release|Any CPU
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Debug|Any CPU.ActiveCfg = Debug
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Debug|x64.ActiveCfg = Debug
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Debug|x64.Build.0 = Debug
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Release|Any CPU.ActiveCfg = Release
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Release|x64.ActiveCfg = Release
-		{7FB6A416-5610-4947-B128-5310D3F00EB7}.Release|x64.Build.0 = Release
+		{10239839-A591-45BF-A404-12F327C95A2E}.Debug|Any CPU.ActiveCfg = Debug
+		{10239839-A591-45BF-A404-12F327C95A2E}.Debug|x64.ActiveCfg = Debug
+		{10239839-A591-45BF-A404-12F327C95A2E}.Release|Any CPU.ActiveCfg = Release
+		{10239839-A591-45BF-A404-12F327C95A2E}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

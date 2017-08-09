@@ -34,21 +34,32 @@ namespace Accounts
                 }
                 else
                 {
-                    string sql = string.Format("insert into Users Values('{3}','{0}','{1}','{2}','{3}','{3}','{3}')", textName.Text.Trim(), textPassword.Text.Trim(),textAlimoney.Text.Trim(),0);
-                    MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
-                    DBOperate.connection.Open();
-                    int count = cmd.ExecuteNonQuery();
-                    DBOperate.connection.Close();
-                    if (count == 1)
+                    //判断密码长度
+                    if (textPassword.Text.Length < 6 || textPassword.Text.Length > 17)
                     {
-                        MessageBox.Show("注册成功");
-                        lg.getUserName(textName.Text.Trim());
-                        sql = string.Format("create table {0}(ID int not null auto_increment, ConsumeDate Varchar(10), Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));", textName.Text.Trim());
-                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        MessageBox.Show("密码长度过短或过长\n密码长度至少6位最多16位");
+                    }
+                    else
+                    {
+                        string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{3}','{3}','{3}','{3}','{3}')",
+                            textName.Text.Trim(), textPassword.Text.Trim(), textAlimoney.Text.Trim(), 0);
+                        MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                         DBOperate.connection.Open();
-                        cmd.ExecuteNonQuery();
+                        int count = cmd.ExecuteNonQuery();
                         DBOperate.connection.Close();
-                        this.Close();
+                        if (count == 1)
+                        {
+                            MessageBox.Show("注册成功");
+                            lg.getUserName(textName.Text.Trim());
+                            sql = string.Format("create table {0}(ID int not null auto_increment, ConsumeDate Varchar(10), " +
+                                "Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));", 
+                                textName.Text.Trim());
+                            cmd = new MySqlCommand(sql, DBOperate.connection);
+                            DBOperate.connection.Open();
+                            cmd.ExecuteNonQuery();
+                            DBOperate.connection.Close();
+                            this.Close();
+                        }
                     }
                 }
             }

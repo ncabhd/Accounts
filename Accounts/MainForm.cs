@@ -19,7 +19,6 @@ namespace Accounts
         public  int i = 0;
         public LoginForm lg;
         public string User;
-        public int ID;
         public MainForm()
         {
             InitializeComponent();
@@ -65,6 +64,7 @@ namespace Accounts
             DBOperate.connection.Close();
         }
 
+        //总金额统计
         public void Money()
         {
             textIncome.Text = income.ToString();
@@ -79,12 +79,6 @@ namespace Accounts
             String date = dt.ToLongDateString();
             String time = dt.ToLongTimeString();
             labelTime.Text = date + time;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnDelete.Enabled = true;
-            //toolStripButtonDelete.Enabled = true;
         }
 
         //打开添加的窗口
@@ -118,6 +112,7 @@ namespace Accounts
             }
         }
 
+        //显示数据
         public void PopulateDataGridView()
         {
             i = 0;
@@ -143,6 +138,7 @@ namespace Accounts
             DBOperate.connection.Close();
         }
 
+        //删除键
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 0)
@@ -155,6 +151,23 @@ namespace Accounts
                     MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                     DBOperate.connection.Open();
                     cmd.ExecuteNonQuery();
+                    if(dataGridView1.Rows[a].Cells[2].Value.ToString()=="收入")
+                    {
+                        income = income - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
+                        sum = sum - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
+                        sql = string.Format("update Users set Credit='{0}',Sum='{1}' where UserName = '{2}'", income, sum, User);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "支取")
+                    {
+                        consume = consume - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
+                        sum = sum + Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
+                        sql = string.Format("update Users set Debit='{0}',Sum='{1}' where UserName = '{2}'", consume, sum, User);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                    Money();
                     DBOperate.connection.Close();
                     PopulateDataGridView();
                 }
@@ -165,11 +178,13 @@ namespace Accounts
             }
         }
 
+        //添加后重新显示数据
         public void insertData(string[] row)
         {
             PopulateDataGridView();
         }
 
+        //查找后重新显示数据
         public void SearchData(string search)
         {
             i = 0;

@@ -112,12 +112,6 @@ namespace Accounts
                     mForm.lg = this;
                     mForm.getUser(textName.Text.Trim());
                     mForm.Show();
-                    sql = string.Format("select * from Users where UserName='{0}'", textName.Text.Trim());
-                    cmd = new MySqlCommand(sql, DBOperate.connection);
-                    DBOperate.connection.Open();
-                    MySqlDataReader sdr = cmd.ExecuteReader();
-                    sdr.Read();
-                    mForm.ID = Convert.ToInt32(sdr["ID"]);
                     DBOperate.connection.Close();
                     this.Hide();
                 }
