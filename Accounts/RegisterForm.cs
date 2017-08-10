@@ -131,5 +131,32 @@ namespace Accounts
         {
             this.Close();
         }
+
+        private void textAlimoney_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != 0x2E)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.')
+            {
+                TextBox tb = sender as TextBox;
+
+                if (tb.Text == "")
+                {
+                    tb.Text = "0.";
+                    tb.Select(tb.Text.Length, 0);
+                    e.Handled = true;
+                }
+                else if (tb.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Handled = false;
+                }
+            }
+        }
     }
 }

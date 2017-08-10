@@ -180,6 +180,7 @@
             this.textMoney.Size = new System.Drawing.Size(129, 25);
             this.textMoney.TabIndex = 14;
             this.textMoney.Text = "0";
+            this.textMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textMoney_KeyPress);
             // 
             // label8
             // 

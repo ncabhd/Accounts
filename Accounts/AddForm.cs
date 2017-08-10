@@ -57,7 +57,7 @@ namespace Accounts
             if (comboBoxLei.SelectedIndex == 0)     //如果是收入
             {
                 comboBoxItem.Items.Add("兼职");
-                comboBoxItem.Items.Add("2");
+                comboBoxItem.Items.Add("其他");
             }
             else
             {
@@ -65,6 +65,7 @@ namespace Accounts
                 comboBoxItem.Items.Add("点外卖");
                 comboBoxItem.Items.Add("买水果");
                 comboBoxItem.Items.Add("买日用品");
+                comboBoxItem.Items.Add("其他");
             }
             comboBoxItem.SelectedIndex = 0;         //显示第一个
         }
@@ -131,7 +132,9 @@ namespace Accounts
                 if(comboBoxLei.Text=="收入")
                 {
                     mf.income = mf.income + Convert.ToDouble(textMoney.Text);
+                    mf.income = Math.Round(mf.income, 2);
                     mf.sum = mf.sum + Convert.ToDouble(textMoney.Text);
+                    mf.sum = Math.Round(mf.sum, 2);
                     sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, User, mf.sum);
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
@@ -146,7 +149,9 @@ namespace Accounts
                 if(comboBoxLei.Text=="支取")
                 {
                     mf.consume = mf.consume + Convert.ToDouble(textMoney.Text);
+                    mf.income = Math.Round(mf.income, 2);
                     mf.sum = mf.sum - Convert.ToDouble(textMoney.Text);
+                    mf.sum = Math.Round(mf.sum, 2);
                     sql = string.Format("update Users set Debit ='{0}',sum='{1}' where UserName='{2}'", mf.consume, mf.sum, User);
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
@@ -223,6 +228,33 @@ namespace Accounts
                 }
             }
             return isToday;
+        }
+
+        private void textMoney_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != 0x2E)
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.')
+            {
+                TextBox tb = sender as TextBox;
+
+                if (tb.Text == "")
+                {
+                    tb.Text = "0.";
+                    tb.Select(tb.Text.Length, 0);
+                    e.Handled = true;
+                }
+                else if (tb.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    e.Handled = false;
+                }
+            }
         }
     }
 }

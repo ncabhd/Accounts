@@ -171,6 +171,7 @@
             this.textAlimoney.Size = new System.Drawing.Size(169, 25);
             this.textAlimoney.TabIndex = 12;
             this.textAlimoney.Text = "0";
+            this.textAlimoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textAlimoney_KeyPress);
             // 
             // RegisterForm
             // 
