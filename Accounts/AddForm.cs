@@ -136,6 +136,12 @@ namespace Accounts
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
                     mf.Money();
+                    if(Today()==true)
+                    {
+                        sql = string.Format("update Users set DaySum=DaySum-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
                 if(comboBoxLei.Text=="支取")
                 {
@@ -145,6 +151,12 @@ namespace Accounts
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
                     mf.Money();
+                    if (Today() == true)
+                    {
+                        sql = string.Format("update Users set DaySum=DaySum+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
                 string[] row = new string[6];
@@ -164,6 +176,7 @@ namespace Accounts
             }
         }
 
+        //判断是否为空
         public bool IsNull()
         {
             bool isnull = true;
@@ -192,6 +205,24 @@ namespace Accounts
                 isnull = false;
             }
             return isnull;
+        }
+
+        //判断是否为当天
+        private bool Today()
+        {
+            bool isToday = false;
+            DateTime dt = DateTime.Now;
+            if(dt.Year.ToString()==comboBoxDateYear.Text)
+            {
+                if(dt.Month.ToString()==comboBoxDateMonth.Text)
+                {
+                    if(dt.Day.ToString()==comboBoxDate.Text)
+                    {
+                        isToday = true;
+                    }
+                }
+            }
+            return isToday;
         }
     }
 }

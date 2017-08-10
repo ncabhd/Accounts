@@ -16,7 +16,7 @@ namespace Accounts
     public partial class MainForm : Form
     {
         public double income = 0, consume = 0, sum = 0;
-        public  int i = 0;
+        public int i = 0;
         public LoginForm lg;
         public string User;
         public MainForm()
@@ -38,11 +38,10 @@ namespace Accounts
             String date = dt.ToLongDateString();
             String time = dt.ToLongTimeString();
             labelTime.Text = date + time;
-
+            //数据库
             PopulateDataGridView();
-
-            //dataGridView1.ClearSelection();
-
+            //每日提醒
+            SearchDay();
             //收入支取剩余
             showMoney();
         }
@@ -51,7 +50,7 @@ namespace Accounts
         private void showMoney()
         {
             string sql = string.Format("select sum from Users where UserName='{0}'", User);
-            MySqlCommand cmd = new MySqlCommand(sql,DBOperate.connection);
+            MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
             sum = Convert.ToDouble(cmd.ExecuteScalar());
             sql = string.Format("select Credit from Users where UserName='{0}'", User);
@@ -151,13 +150,19 @@ namespace Accounts
                     MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                     DBOperate.connection.Open();
                     cmd.ExecuteNonQuery();
-                    if(dataGridView1.Rows[a].Cells[2].Value.ToString()=="收入")
+                    if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "收入")
                     {
                         income = income - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
                         sum = sum - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
                         sql = string.Format("update Users set Credit='{0}',Sum='{1}' where UserName = '{2}'", income, sum, User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
+                        if(Today(a)==true)
+                        {
+                            sql = string.Format("update Users set DaySum=DaySum+{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
+                            cmd = new MySqlCommand(sql, DBOperate.connection);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                     if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "支取")
                     {
@@ -166,6 +171,12 @@ namespace Accounts
                         sql = string.Format("update Users set Debit='{0}',Sum='{1}' where UserName = '{2}'", consume, sum, User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
+                        if (Today(a) == true)
+                        {
+                            sql = string.Format("update Users set DaySum=DaySum-{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
+                            cmd = new MySqlCommand(sql, DBOperate.connection);
+                            cmd.ExecuteNonQuery();
+                        }
                     }
                     Money();
                     DBOperate.connection.Close();
@@ -192,7 +203,7 @@ namespace Accounts
             string sql = string.Format("Select * from {1} where Type='{0}' order by ConsumeDate desc", search, User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
-            DataSet ds = new DataSet();
+            //DataSet ds = new DataSet();
             MySqlDataReader sdr = cmd.ExecuteReader();
             while (sdr.Read())
             {
@@ -208,5 +219,59 @@ namespace Accounts
             }
             DBOperate.connection.Close();
         }
+
+        private void SearchDay()
+        {
+            string sql = string.Format("select * from Users where UserName='{0}'", User);
+            MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+            DBOperate.connection.Open();
+            MySqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                string boolMonth = sdr["Month"].ToString();
+                string boolDay = sdr["Day"].ToString();
+                string DaySum = sdr["DaySum"].ToString();
+                DBOperate.connection.Close();
+                if (boolMonth != "0")
+                {
+                    MessageBox.Show("本月生活费已添加");
+                    sql = string.Format("update Users set Month='0' where UserName='{0}'", User);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+                }
+                if (boolDay != "0")
+                {
+                    DaySum = "您昨天共消费" + DaySum + "元";
+                    MessageBox.Show(DaySum);
+                    sql = string.Format("update Users set Day='0' where UserName='{0}'", User);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+                }
+            }
+            else
+            {
+                DBOperate.connection.Close();
+            }
+        }
+
+        private bool Today(int a)
+        {
+            bool isToday = false;
+            DateTime dt = DateTime.Now;
+            string year = dt.Year.ToString();
+            string month = dt.Month.ToString();
+            string day = dt.Day.ToString();
+            string date = year + "-" + month + "-" + day;
+            if(date==dataGridView1.Rows[a].Cells[1].Value.ToString())
+            {
+                isToday = true;
+            }
+            return isToday;
+        }
+        
     }
 }

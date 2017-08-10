@@ -26,7 +26,7 @@ namespace Accounts
             bool isNotEmpty = CheckEmpty();
             if (isNotEmpty == true)
             {
-                if (getResist() == true)
+                if (getResist() == true || textName.Text == "Users")
                 {
                     MessageBox.Show("该用户已经注册，请重新输入注册");
                     textName.SelectAll();
@@ -41,7 +41,7 @@ namespace Accounts
                     }
                     else
                     {
-                        string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{3}','{3}','{3}','{3}','{3}')",
+                        string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{2}','{3}','{3}','{3}','{3}','{3}')",
                             textName.Text.Trim(), textPassword.Text.Trim(), textAlimoney.Text.Trim(), 0);
                         MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                         DBOperate.connection.Open();
@@ -52,7 +52,7 @@ namespace Accounts
                             MessageBox.Show("注册成功");
                             lg.getUserName(textName.Text.Trim());
                             sql = string.Format("create table {0}(ID int not null auto_increment, ConsumeDate Varchar(10), " +
-                                "Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));", 
+                                "Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));",
                                 textName.Text.Trim());
                             cmd = new MySqlCommand(sql, DBOperate.connection);
                             DBOperate.connection.Open();
