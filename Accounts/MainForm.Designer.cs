@@ -32,13 +32,6 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -51,6 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textDaySum = new System.Windows.Forms.TextBox();
             this.btnEmpty = new System.Windows.Forms.Button();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,57 +86,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(713, 258);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "序号";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 55;
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "日期";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.ReadOnly = true;
-            this.ColumnDate.Width = 65;
-            // 
-            // ColumnLei
-            // 
-            this.ColumnLei.HeaderText = "类别";
-            this.ColumnLei.Name = "ColumnLei";
-            this.ColumnLei.ReadOnly = true;
-            this.ColumnLei.Width = 55;
-            // 
-            // ColumnMu
-            // 
-            this.ColumnMu.HeaderText = "收支项目";
-            this.ColumnMu.Name = "ColumnMu";
-            this.ColumnMu.ReadOnly = true;
-            this.ColumnMu.Width = 80;
-            // 
-            // ColumnMoney
-            // 
-            this.ColumnMoney.HeaderText = "金钱";
-            this.ColumnMoney.Name = "ColumnMoney";
-            this.ColumnMoney.ReadOnly = true;
-            this.ColumnMoney.Width = 65;
-            // 
-            // ColumnBei
-            // 
-            this.ColumnBei.HeaderText = "备注";
-            this.ColumnBei.Name = "ColumnBei";
-            this.ColumnBei.ReadOnly = true;
-            this.ColumnBei.Width = 180;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
             // 
             // btnInsert
             // 
@@ -171,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 309);
+            this.label1.Location = new System.Drawing.Point(179, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -179,7 +130,7 @@
             // 
             // textIncome
             // 
-            this.textIncome.Location = new System.Drawing.Point(374, 306);
+            this.textIncome.Location = new System.Drawing.Point(357, 306);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
@@ -188,7 +139,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(470, 309);
+            this.label2.Location = new System.Drawing.Point(453, 309);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -196,7 +147,7 @@
             // 
             // textConsume
             // 
-            this.textConsume.Location = new System.Drawing.Point(513, 306);
+            this.textConsume.Location = new System.Drawing.Point(496, 306);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
@@ -205,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(609, 309);
+            this.label3.Location = new System.Drawing.Point(592, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -213,7 +164,7 @@
             // 
             // textSum
             // 
-            this.textSum.Location = new System.Drawing.Point(652, 306);
+            this.textSum.Location = new System.Drawing.Point(635, 306);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
@@ -222,7 +173,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(748, 309);
+            this.label4.Location = new System.Drawing.Point(731, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 12;
@@ -230,7 +181,7 @@
             // 
             // textDaySum
             // 
-            this.textDaySum.Location = new System.Drawing.Point(821, 306);
+            this.textDaySum.Location = new System.Drawing.Point(804, 306);
             this.textDaySum.Name = "textDaySum";
             this.textDaySum.Size = new System.Drawing.Size(100, 25);
             this.textDaySum.TabIndex = 13;
@@ -246,11 +197,60 @@
             this.btnEmpty.UseVisualStyleBackColor = true;
             this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "序号";
+            this.ColumnID.MinimumWidth = 10;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 75;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日期";
+            this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.ReadOnly = true;
+            this.ColumnDate.Width = 85;
+            // 
+            // ColumnLei
+            // 
+            this.ColumnLei.HeaderText = "类别";
+            this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.ReadOnly = true;
+            this.ColumnLei.Width = 75;
+            // 
+            // ColumnMu
+            // 
+            this.ColumnMu.HeaderText = "收支项目";
+            this.ColumnMu.Name = "ColumnMu";
+            this.ColumnMu.ReadOnly = true;
+            // 
+            // ColumnMoney
+            // 
+            this.ColumnMoney.HeaderText = "金钱";
+            this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.ReadOnly = true;
+            this.ColumnMoney.Width = 85;
+            // 
+            // ColumnBei
+            // 
+            this.ColumnBei.HeaderText = "备注";
+            this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.ReadOnly = true;
+            this.ColumnBei.Width = 250;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 356);
+            this.ClientSize = new System.Drawing.Size(927, 356);
             this.Controls.Add(this.btnEmpty);
             this.Controls.Add(this.textDaySum);
             this.Controls.Add(this.label4);
@@ -291,6 +291,9 @@
         private System.Windows.Forms.TextBox textConsume;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textSum;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textDaySum;
+        private System.Windows.Forms.Button btnEmpty;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLei;
@@ -298,8 +301,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBei;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textDaySum;
-        private System.Windows.Forms.Button btnEmpty;
     }
 }
