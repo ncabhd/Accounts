@@ -102,6 +102,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SearchForm";
             this.Text = "SearchForm";
             this.Load += new System.EventHandler(this.SearchForm_Load);

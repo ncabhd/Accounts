@@ -141,7 +141,7 @@ namespace Accounts
                     mf.Money();
                     if(Today()==true)
                     {
-                        sql = string.Format("update Users set DaySum=DaySum-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
                     }
@@ -158,7 +158,7 @@ namespace Accounts
                     mf.Money();
                     if (Today() == true)
                     {
-                        sql = string.Format("update Users set DaySum=DaySum+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
                     }

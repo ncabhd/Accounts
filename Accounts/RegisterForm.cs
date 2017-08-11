@@ -18,6 +18,7 @@ namespace Accounts
         public RegisterForm()
         {
             InitializeComponent();
+            textName.Select();
         }
 
         //注册按钮
@@ -41,7 +42,7 @@ namespace Accounts
                     }
                     else
                     {
-                        string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{2}','{3}','{3}','{3}','{3}','{3}')",
+                        string sql = string.Format("insert into Users Values('{0}','{1}','{2}','{2}','{3}','{3}','{3}','{3}','{3}','{3}')",
                             textName.Text.Trim(), textPassword.Text.Trim(), textAlimoney.Text.Trim(), 0);
                         MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                         DBOperate.connection.Open();

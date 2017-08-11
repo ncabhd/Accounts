@@ -223,6 +223,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddForm";
             this.Text = "AddForm";
             this.Load += new System.EventHandler(this.AddForm_Load);

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Collections;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Data.SQLite;
+
 
 namespace Accounts
 {
@@ -159,7 +161,7 @@ namespace Accounts
                         cmd.ExecuteNonQuery();
                         if(Today(a)==true)
                         {
-                            sql = string.Format("update Users set DaySum=DaySum+{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
+                            sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
                             cmd = new MySqlCommand(sql, DBOperate.connection);
                             cmd.ExecuteNonQuery();
                         }
@@ -173,7 +175,7 @@ namespace Accounts
                         cmd.ExecuteNonQuery();
                         if (Today(a) == true)
                         {
-                            sql = string.Format("update Users set DaySum=DaySum-{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
+                            sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
                             cmd = new MySqlCommand(sql, DBOperate.connection);
                             cmd.ExecuteNonQuery();
                         }
@@ -220,6 +222,49 @@ namespace Accounts
             DBOperate.connection.Close();
         }
 
+        private void textIncome_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void textConsume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void textSum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void btnEmpty_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("是否确认清楚该账号", "提醒", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.OK)
+            {
+                string sql = string.Format("delete from Users where UserName='{0}'", User);
+                MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
+                DBOperate.connection.Open();
+                cmd.ExecuteNonQuery();
+                sql = string.Format("drop table {0}", User);
+                cmd = new MySqlCommand(sql, DBOperate.connection);
+                cmd.ExecuteNonQuery();
+                DBOperate.connection.Close();
+                sql = string.Format("update SavePasswords set UserName='',UserPassword=''");
+                SQLiteCommand smd = new SQLiteCommand(sql, m_db.Connection);
+                m_db.Connection.Open();
+                smd.ExecuteNonQuery();
+                m_db.Connection.Close();
+                this.Dispose();
+                Application.Exit();
+            }
+        }
+
         private void SearchDay()
         {
             string sql = string.Format("select * from Users where UserName='{0}'", User);
@@ -230,8 +275,9 @@ namespace Accounts
             {
                 string boolMonth = sdr["Month"].ToString();
                 string boolDay = sdr["Day"].ToString();
-                string DaySum = sdr["DaySum"].ToString();
+                string DaySum = sdr["DaySum1"].ToString();
                 DBOperate.connection.Close();
+                textDaySum.Text = DaySum;
                 if (boolMonth != "0")
                 {
                     MessageBox.Show("本月生活费已添加");

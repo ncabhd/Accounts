@@ -48,6 +48,9 @@
             this.textConsume = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textSum = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textDaySum = new System.Windows.Forms.TextBox();
+            this.btnEmpty = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +82,7 @@
             this.ColumnMoney,
             this.ColumnBei,
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(161, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(182, 32);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
@@ -90,47 +93,54 @@
             // 
             this.ColumnID.HeaderText = "序号";
             this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
             this.ColumnID.Width = 55;
             // 
             // ColumnDate
             // 
             this.ColumnDate.HeaderText = "日期";
             this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.ReadOnly = true;
             this.ColumnDate.Width = 65;
             // 
             // ColumnLei
             // 
             this.ColumnLei.HeaderText = "类别";
             this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.ReadOnly = true;
             this.ColumnLei.Width = 55;
             // 
             // ColumnMu
             // 
             this.ColumnMu.HeaderText = "收支项目";
             this.ColumnMu.Name = "ColumnMu";
+            this.ColumnMu.ReadOnly = true;
             this.ColumnMu.Width = 80;
             // 
             // ColumnMoney
             // 
             this.ColumnMoney.HeaderText = "金钱";
             this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.ReadOnly = true;
             this.ColumnMoney.Width = 65;
             // 
             // ColumnBei
             // 
             this.ColumnBei.HeaderText = "备注";
             this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.ReadOnly = true;
             this.ColumnBei.Width = 180;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(12, 45);
+            this.btnInsert.Location = new System.Drawing.Point(20, 32);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(143, 62);
             this.btnInsert.TabIndex = 2;
@@ -140,7 +150,7 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(12, 126);
+            this.btnFind.Location = new System.Drawing.Point(20, 113);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(143, 61);
             this.btnFind.TabIndex = 4;
@@ -150,7 +160,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(12, 207);
+            this.btnDelete.Location = new System.Drawing.Point(20, 194);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(143, 61);
             this.btnDelete.TabIndex = 5;
@@ -161,7 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(253, 309);
+            this.label1.Location = new System.Drawing.Point(196, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -169,15 +179,16 @@
             // 
             // textIncome
             // 
-            this.textIncome.Location = new System.Drawing.Point(431, 306);
+            this.textIncome.Location = new System.Drawing.Point(374, 306);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
+            this.textIncome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textIncome_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 309);
+            this.label2.Location = new System.Drawing.Point(470, 309);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -185,15 +196,16 @@
             // 
             // textConsume
             // 
-            this.textConsume.Location = new System.Drawing.Point(570, 306);
+            this.textConsume.Location = new System.Drawing.Point(513, 306);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
+            this.textConsume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textConsume_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(666, 309);
+            this.label3.Location = new System.Drawing.Point(609, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -201,16 +213,47 @@
             // 
             // textSum
             // 
-            this.textSum.Location = new System.Drawing.Point(709, 306);
+            this.textSum.Location = new System.Drawing.Point(652, 306);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
+            this.textSum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textSum_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(748, 309);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "昨日花费";
+            // 
+            // textDaySum
+            // 
+            this.textDaySum.Location = new System.Drawing.Point(821, 306);
+            this.textDaySum.Name = "textDaySum";
+            this.textDaySum.Size = new System.Drawing.Size(100, 25);
+            this.textDaySum.TabIndex = 13;
+            this.textDaySum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // btnEmpty
+            // 
+            this.btnEmpty.Location = new System.Drawing.Point(49, 261);
+            this.btnEmpty.Name = "btnEmpty";
+            this.btnEmpty.Size = new System.Drawing.Size(84, 29);
+            this.btnEmpty.TabIndex = 14;
+            this.btnEmpty.Text = "回收账号";
+            this.btnEmpty.UseVisualStyleBackColor = true;
+            this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 356);
+            this.ClientSize = new System.Drawing.Size(953, 356);
+            this.Controls.Add(this.btnEmpty);
+            this.Controls.Add(this.textDaySum);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textSum);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textConsume);
@@ -222,6 +265,8 @@
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelTime);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Accounts";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClose);
@@ -253,5 +298,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBei;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textDaySum;
+        private System.Windows.Forms.Button btnEmpty;
     }
 }

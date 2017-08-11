@@ -159,6 +159,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Text = "登陆";
             this.Load += new System.EventHandler(this.LoginForm_Load);
