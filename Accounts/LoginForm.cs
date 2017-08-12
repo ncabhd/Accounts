@@ -24,6 +24,7 @@ namespace Accounts
         //注册
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            //新建一个注册窗口
             RegisterForm rForm = new RegisterForm();
             rForm.lg = this;
             rForm.Show();
@@ -38,9 +39,10 @@ namespace Accounts
         //获取保存的密码
         public void getPassword()
         {
+            //检测有没有myDataBase
             if (File.Exists("myDataBase.sqlite"))
             {
-                string sql = string.Format("select * from SavePasswords");
+                string sql = string.Format("select * from SavePasswords");      //把本地密码读取出来
                 SQLiteCommand cmd = new SQLiteCommand(sql, m_db.Connection);
                 m_db.Connection.Open();
                 DataSet ds = new DataSet();
@@ -50,35 +52,30 @@ namespace Accounts
                 textPassword.Text = sdr["UserPassword"].ToString();
                 sdr.Close();
                 m_db.Connection.Close();
-                ckbRemember.Checked = true;
+                ckbRemember.Checked = true;     //让记住密码保持打开
             }
             else
             {
-                setDataBase();
+                setDataBase();      //建一个本地数据库
             }
         }
 
+        //保存密码到本地
         public void savePassword()
         {
-            if (File.Exists("myDataBase.sqlite"))
-            {
-                string sql = string.Format("update SavePasswords set UserName='{0}',UserPassword='{1}'", textName.Text.Trim(), textPassword.Text.Trim());
-                SQLiteCommand cmd = new SQLiteCommand(sql, m_db.Connection);
-                m_db.Connection.Open();
-                cmd.ExecuteNonQuery();
-                m_db.Connection.Close();
-            }
-            else
+            if (!File.Exists("myDataBase.sqlite"))
             {
                 setDataBase();
-                string sql = string.Format("update SavePasswords set UserName='{0}',UserPassword='{1}'", textName.Text.Trim(), textPassword.Text.Trim());
-                SQLiteCommand cmd = new SQLiteCommand(sql, m_db.Connection);
-                m_db.Connection.Open();
-                cmd.ExecuteNonQuery();
-                m_db.Connection.Close();
             }
+            string sql = string.Format("update SavePasswords set UserName='{0}',UserPassword='{1}'",
+                textName.Text.Trim(), textPassword.Text.Trim());        //更新本地密码
+            SQLiteCommand cmd = new SQLiteCommand(sql, m_db.Connection);
+            m_db.Connection.Open();
+            cmd.ExecuteNonQuery();
+            m_db.Connection.Close();
         }
 
+        //新建本地数据库
         public void setDataBase()
         {
             SQLiteConnection.CreateFile("myDataBase.sqlite");
@@ -92,16 +89,19 @@ namespace Accounts
             m_db.Connection.Close();
         }
 
+        //登陆键
         private void btnLogin_Click(object sender, EventArgs e)
         {
             bool isNotEmpty = CheckEmpty();
             if(isNotEmpty==true)
             {
-                string sql = string.Format("select count(*) from Users where UserName='{0}' and UserPassword='{1}'", textName.Text.Trim(), textPassword.Text.Trim());
+                string sql = string.Format("select count(*) from Users where UserName='{0}' and UserPassword='{1}'", 
+                    textName.Text.Trim(), textPassword.Text.Trim());
                 DBOperate.connection.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 DBOperate.connection.Close();
+                //返回个数
                 if (count > 0)
                 {
                     if (ckbRemember.Checked == true)
@@ -110,7 +110,7 @@ namespace Accounts
                     }
                     MainForm mForm = new MainForm();
                     mForm.lg = this;
-                    mForm.getUser(textName.Text.Trim());
+                    mForm.getUser(textName.Text.Trim());        //把用户名传到主菜单
                     mForm.Show();
                     DBOperate.connection.Close();
                     this.Hide();
@@ -122,6 +122,7 @@ namespace Accounts
             }
         }
 
+        //判断是否为空
         private bool CheckEmpty()
         {
             bool result = true;
@@ -146,42 +147,13 @@ namespace Accounts
             return result;
         }
 
-        private void textPassword_keyDown(object sender,KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                bool isNotEmpty = CheckEmpty();
-                if (isNotEmpty == true)
-                {
-                    string sql = string.Format("select count(*) from Users where UserName='{0}' and UserPassword='{1}'", textName.Text.Trim(), textPassword.Text.Trim());
-                    DBOperate.connection.Open();
-                    MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    DBOperate.connection.Close();
-                    if (count > 0)
-                    {
-                        if (ckbRemember.Checked == true)
-                        {
-                            this.savePassword();
-                        }
-                        MainForm mForm = new MainForm();
-                        mForm.lg = this;
-                        mForm.getUser(textName.Text.Trim());
-                        mForm.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        labelAllError.Visible = true;
-                    }
-                }
-            }
-        }
-
+        //初始化
         private void LoginForm_Load(object sender, EventArgs e)
         {
             getPassword();
             this.textName.Select();
+
+            //调用cmd
             /*
             string str = System.Environment.CurrentDirectory;
             str = "cacls \"" + str + "\" /e /t /g everyone:F";

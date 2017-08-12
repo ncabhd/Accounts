@@ -10,7 +10,7 @@ namespace Accounts
 {
     class DBOperate
     {
-        private static string connString = "Data source=123.206.193.114;Initial Catalog=Accounts;User Id=root;Password=zhumeng0.0";
+        private static string connString = "Data source=123.206.193.114;Initial Catalog=Accounts;User Id=root;Password=zhumeng0.0";     //MySQL数据库信息
         public static MySqlConnection connection = new MySqlConnection(connString);
     }
 }

@@ -9,6 +9,7 @@ namespace Accounts
 {
     class m_db
     {
+        //本地数据库
         public static SQLiteConnection Connection = new SQLiteConnection("DataSource=myDataBase.sqlite;");
     }
 }

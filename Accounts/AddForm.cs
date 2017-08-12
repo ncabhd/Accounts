@@ -31,7 +31,7 @@ namespace Accounts
         private void AddForm_Load(object sender, EventArgs e)
         {
             comboBoxLei.Items.Add("收入");          //在类别组合框口加入收入
-            comboBoxLei.Items.Add("支取");          //在类别组合框中加入支取
+            comboBoxLei.Items.Add("支出");          //在类别组合框中加入支出
             comboBoxLei.SelectedIndex = 0;          
             comboBoxItem.SelectedIndex = 0;         //类别和项目显示第一个
             for (int i = 2000; i <= 2900; ++i)      //年组合框初始化
@@ -121,34 +121,35 @@ namespace Accounts
         private void btnAdd_Click(object sender, EventArgs e)
         {
             bool isNull = IsNull();
-            if (isNull == true)
+            if (isNull == true)     //如果不全是空
             {
-                string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();
+                string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();      //获取时间
                 string sql = string.Format("insert into {5} (ConsumeDate,Type,Catagory,Money,Description) values('{0}','{1}','{2}','{3}','{4}')",
-                    data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(), User);
+                    data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(), User);     //向MySQL插入
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
                 if(comboBoxLei.Text=="收入")
                 {
-                    mf.income = mf.income + Convert.ToDouble(textMoney.Text);
-                    mf.income = Math.Round(mf.income, 2);
-                    mf.sum = mf.sum + Convert.ToDouble(textMoney.Text);
+                    mf.income = mf.income + Convert.ToDouble(textMoney.Text);   //主菜单的收入的值
+                    mf.income = Math.Round(mf.income, 2);       //四舍五入
+                    mf.sum = mf.sum + Convert.ToDouble(textMoney.Text);     //主菜单的总资产
                     mf.sum = Math.Round(mf.sum, 2);
-                    sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, User, mf.sum);
+                    sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, User, mf.sum);     //更新MySQL中的收入和总资产
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
-                    mf.Money();
-                    if(Today()==true)
+                    mf.Money();             //更改主菜单的值
+                    if(Today()==true)       //如果添加的是当天的帐，记录下来
                     {
                         sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
                     }
                 }
-                if(comboBoxLei.Text=="支取")
+                //支出同收入
+                if(comboBoxLei.Text=="支出")
                 {
-                    mf.consume = mf.consume + Convert.ToDouble(textMoney.Text);
+                    mf.consume = mf.consume + Convert.ToDouble(textMoney.Text);     //主菜单的支取
                     mf.income = Math.Round(mf.income, 2);
                     mf.sum = mf.sum - Convert.ToDouble(textMoney.Text);
                     mf.sum = Math.Round(mf.sum, 2);
@@ -163,7 +164,7 @@ namespace Accounts
                         cmd.ExecuteNonQuery();
                     }
                 }
-
+                //建一个string数组添加到datagridview
                 string[] row = new string[6];
                 row[1] = data;
                 row[2] = comboBoxLei.Text.Trim();
@@ -171,7 +172,7 @@ namespace Accounts
                 row[4] = textMoney.Text.Trim();
                 row[5] = textDescription.Text.Trim();
                 DBOperate.connection.Close();
-                mf.insertData(row);
+                mf.insertData(row);     //主菜单插入
                 MessageBox.Show("成功添加");
                 this.Close();
             }
@@ -232,21 +233,21 @@ namespace Accounts
 
         private void textMoney_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != 0x2E)
+            if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != 0x2E)        //？？待查
             {
                 e.Handled = true;
             }
-            if (e.KeyChar == '.')
+            if (e.KeyChar == '.')       //金额只允许输入一个"."
             {
                 TextBox tb = sender as TextBox;
 
-                if (tb.Text == "")
+                if (tb.Text == "")      //如果之前没有输入，在前面加个"0."
                 {
                     tb.Text = "0.";
                     tb.Select(tb.Text.Length, 0);
                     e.Handled = true;
                 }
-                else if (tb.Text.Contains("."))
+                else if (tb.Text.Contains("."))     //之前有"."不能在输入
                 {
                     e.Handled = true;
                 }
@@ -254,6 +255,10 @@ namespace Accounts
                 {
                     e.Handled = false;
                 }
+
+                //e.Handled true不能输入
+                //          false能输入
+
             }
         }
     }
