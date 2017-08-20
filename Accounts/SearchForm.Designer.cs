@@ -71,7 +71,7 @@
             // radioButtonOut
             // 
             this.radioButtonOut.AutoSize = true;
-            this.radioButtonOut.Location = new System.Drawing.Point(158, 31);
+            this.radioButtonOut.Location = new System.Drawing.Point(153, 31);
             this.radioButtonOut.Name = "radioButtonOut";
             this.radioButtonOut.Size = new System.Drawing.Size(58, 19);
             this.radioButtonOut.TabIndex = 3;

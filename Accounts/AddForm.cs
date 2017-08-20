@@ -15,12 +15,6 @@ namespace Accounts
     public partial class AddForm : Form
     {
         public MainForm mf;
-        public string User;
-
-        public void getUser(string name)
-        {
-            User = name;
-        }
 
         public AddForm()
         {
@@ -125,7 +119,7 @@ namespace Accounts
             {
                 string data = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim() + "-" + comboBoxDate.Text.Trim();      //获取时间
                 string sql = string.Format("insert into {5} (ConsumeDate,Type,Catagory,Money,Description) values('{0}','{1}','{2}','{3}','{4}')",
-                    data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(), User);     //向MySQL插入
+                    data, comboBoxLei.Text.Trim(), comboBoxItem.Text.Trim(), textMoney.Text.Trim(), textDescription.Text.Trim(), mf.User);     //向MySQL插入
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
@@ -135,13 +129,13 @@ namespace Accounts
                     mf.income = Math.Round(mf.income, 2);       //四舍五入
                     mf.sum = mf.sum + Convert.ToDouble(textMoney.Text);     //主菜单的总资产
                     mf.sum = Math.Round(mf.sum, 2);
-                    sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, User, mf.sum);     //更新MySQL中的收入和总资产
+                    sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, mf.User, mf.sum);     //更新MySQL中的收入和总资产
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
                     mf.Money();             //更改主菜单的值
                     if(Today()==true)       //如果添加的是当天的帐，记录下来
                     {
-                        sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), mf.User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
                     }
@@ -153,13 +147,13 @@ namespace Accounts
                     mf.income = Math.Round(mf.income, 2);
                     mf.sum = mf.sum - Convert.ToDouble(textMoney.Text);
                     mf.sum = Math.Round(mf.sum, 2);
-                    sql = string.Format("update Users set Debit ='{0}',sum='{1}' where UserName='{2}'", mf.consume, mf.sum, User);
+                    sql = string.Format("update Users set Debit ='{0}',sum='{1}' where UserName='{2}'", mf.consume, mf.sum, mf.User);
                     cmd = new MySqlCommand(sql, DBOperate.connection);
                     cmd.ExecuteNonQuery();
                     mf.Money();
                     if (Today() == true)
                     {
-                        sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), User);
+                        sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), mf.User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
                         cmd.ExecuteNonQuery();
                     }

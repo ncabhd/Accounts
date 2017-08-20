@@ -52,6 +52,8 @@ namespace Accounts
                         {
                             MessageBox.Show("注册成功");
                             lg.getUserName(textName.Text.Trim());
+                            
+                            //新建表
                             sql = string.Format("create table {0}(ID int not null auto_increment, ConsumeDate Varchar(10), " +
                                 "Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));",
                                 textName.Text.Trim());
@@ -133,9 +135,11 @@ namespace Accounts
             this.Close();
         }
 
+        //检测生活费只能输入数字
         private void textAlimoney_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != 8 && !Char.IsDigit(e.KeyChar) && e.KeyChar != 0x2E)
+            //ASCII    8是退格    0x2E是"."
             {
                 e.Handled = true;
             }
