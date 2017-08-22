@@ -32,6 +32,13 @@
             this.labelTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -44,13 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textDaySum = new System.Windows.Forms.TextBox();
             this.btnEmpty = new System.Windows.Forms.Button();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBei = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,55 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(713, 258);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "序号";
+            this.ColumnID.MinimumWidth = 10;
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 75;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "日期";
+            this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.ReadOnly = true;
+            this.ColumnDate.Width = 85;
+            // 
+            // ColumnLei
+            // 
+            this.ColumnLei.HeaderText = "类别";
+            this.ColumnLei.Name = "ColumnLei";
+            this.ColumnLei.ReadOnly = true;
+            this.ColumnLei.Width = 75;
+            // 
+            // ColumnMu
+            // 
+            this.ColumnMu.HeaderText = "收支项目";
+            this.ColumnMu.Name = "ColumnMu";
+            this.ColumnMu.ReadOnly = true;
+            // 
+            // ColumnMoney
+            // 
+            this.ColumnMoney.HeaderText = "金钱";
+            this.ColumnMoney.Name = "ColumnMoney";
+            this.ColumnMoney.ReadOnly = true;
+            this.ColumnMoney.Width = 85;
+            // 
+            // ColumnBei
+            // 
+            this.ColumnBei.HeaderText = "备注";
+            this.ColumnBei.Name = "ColumnBei";
+            this.ColumnBei.ReadOnly = true;
+            this.ColumnBei.Width = 250;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // btnInsert
             // 
@@ -197,55 +246,6 @@
             this.btnEmpty.UseVisualStyleBackColor = true;
             this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "序号";
-            this.ColumnID.MinimumWidth = 10;
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 75;
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "日期";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.ReadOnly = true;
-            this.ColumnDate.Width = 85;
-            // 
-            // ColumnLei
-            // 
-            this.ColumnLei.HeaderText = "类别";
-            this.ColumnLei.Name = "ColumnLei";
-            this.ColumnLei.ReadOnly = true;
-            this.ColumnLei.Width = 75;
-            // 
-            // ColumnMu
-            // 
-            this.ColumnMu.HeaderText = "收支项目";
-            this.ColumnMu.Name = "ColumnMu";
-            this.ColumnMu.ReadOnly = true;
-            // 
-            // ColumnMoney
-            // 
-            this.ColumnMoney.HeaderText = "金钱";
-            this.ColumnMoney.Name = "ColumnMoney";
-            this.ColumnMoney.ReadOnly = true;
-            this.ColumnMoney.Width = 85;
-            // 
-            // ColumnBei
-            // 
-            this.ColumnBei.HeaderText = "备注";
-            this.ColumnBei.Name = "ColumnBei";
-            this.ColumnBei.ReadOnly = true;
-            this.ColumnBei.Width = 250;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -268,7 +268,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Accounts";
+            this.Text = "主目录";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClose);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

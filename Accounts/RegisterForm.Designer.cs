@@ -196,7 +196,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegisterForm";
-            this.Text = "RegisterForm";
+            this.Text = "注册";
             this.ResumeLayout(false);
             this.PerformLayout();
 

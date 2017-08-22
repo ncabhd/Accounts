@@ -105,7 +105,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SearchForm";
-            this.Text = "SearchForm";
+            this.Text = "查找";
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
