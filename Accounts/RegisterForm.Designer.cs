@@ -136,6 +136,7 @@
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(169, 25);
             this.textName.TabIndex = 8;
+            this.textName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textName_KeyPress);
             // 
             // textPassword
             // 

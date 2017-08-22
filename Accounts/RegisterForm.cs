@@ -52,7 +52,7 @@ namespace Accounts
                         {
                             MessageBox.Show("注册成功");
                             lg.getUserName(textName.Text.Trim());
-                            
+
                             //新建表
                             sql = string.Format("create table {0}(ID int not null auto_increment, ConsumeDate Varchar(10), " +
                                 "Type Varchar(5), Catagory varchar(10), Money double(123,2), Description varchar(50),primary key (ID));",
@@ -162,6 +162,16 @@ namespace Accounts
                     e.Handled = false;
                 }
             }
+        }
+
+        private void textName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || e.KeyChar == 8 || Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
         }
     }
 }
