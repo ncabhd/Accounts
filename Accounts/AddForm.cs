@@ -55,10 +55,12 @@ namespace Accounts
             }
             else
             {
-                comboBoxItem.Items.Add("充饭卡");
-                comboBoxItem.Items.Add("点外卖");
-                comboBoxItem.Items.Add("买水果");
-                comboBoxItem.Items.Add("买日用品");
+                comboBoxItem.Items.Add("餐饮");
+                comboBoxItem.Items.Add("零食");
+                comboBoxItem.Items.Add("公交");
+                comboBoxItem.Items.Add("娱乐");
+                comboBoxItem.Items.Add("学习");
+                comboBoxItem.Items.Add("日杂");
                 comboBoxItem.Items.Add("其他");
             }
             comboBoxItem.SelectedIndex = 0;         //显示第一个
