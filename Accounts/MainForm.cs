@@ -211,7 +211,7 @@ namespace Accounts
         {
             i = 0;
             dataGridView1.Rows.Clear();
-            string sql = string.Format("Select * from {1} where Type='{0}' order by ConsumeDate desc", 
+            string sql = string.Format("select * from {1} where Type='{0}' order by ConsumeDate desc", 
                 search, User);
             MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
             DBOperate.connection.Open();
@@ -277,6 +277,13 @@ namespace Accounts
                 this.Dispose();
                 Application.Exit();
             }
+        }
+
+        private void btnDay_Click(object sender, EventArgs e)
+        {
+            DayForm df = new DayForm();
+            df.mf = this;
+            df.ShowDialog();
         }
 
         //检查自动提醒和添加生活费

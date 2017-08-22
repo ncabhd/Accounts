@@ -51,13 +51,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textDaySum = new System.Windows.Forms.TextBox();
             this.btnEmpty = new System.Windows.Forms.Button();
+            this.btnDay = new System.Windows.Forms.Button();
+            this.btnMonth = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(17, 309);
+            this.labelTime.Location = new System.Drawing.Point(12, 309);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(79, 15);
             this.labelTime.TabIndex = 0;
@@ -140,9 +142,9 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(20, 32);
+            this.btnInsert.Location = new System.Drawing.Point(20, 41);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(143, 62);
+            this.btnInsert.Size = new System.Drawing.Size(143, 38);
             this.btnInsert.TabIndex = 2;
             this.btnInsert.Text = "新 增 条 目";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -150,9 +152,9 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(20, 113);
+            this.btnFind.Location = new System.Drawing.Point(20, 85);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(143, 61);
+            this.btnFind.Size = new System.Drawing.Size(143, 38);
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "查 找 条 目";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -160,9 +162,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(20, 194);
+            this.btnDelete.Location = new System.Drawing.Point(20, 217);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(143, 61);
+            this.btnDelete.Size = new System.Drawing.Size(143, 38);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "删 除 条 目";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -171,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(179, 309);
+            this.label1.Location = new System.Drawing.Point(193, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 15);
             this.label1.TabIndex = 6;
@@ -179,7 +181,7 @@
             // 
             // textIncome
             // 
-            this.textIncome.Location = new System.Drawing.Point(357, 306);
+            this.textIncome.Location = new System.Drawing.Point(371, 306);
             this.textIncome.Name = "textIncome";
             this.textIncome.Size = new System.Drawing.Size(90, 25);
             this.textIncome.TabIndex = 7;
@@ -188,7 +190,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(453, 309);
+            this.label2.Location = new System.Drawing.Point(467, 309);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 8;
@@ -196,7 +198,7 @@
             // 
             // textConsume
             // 
-            this.textConsume.Location = new System.Drawing.Point(496, 306);
+            this.textConsume.Location = new System.Drawing.Point(510, 306);
             this.textConsume.Name = "textConsume";
             this.textConsume.Size = new System.Drawing.Size(90, 25);
             this.textConsume.TabIndex = 9;
@@ -205,7 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(592, 309);
+            this.label3.Location = new System.Drawing.Point(606, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 10;
@@ -213,7 +215,7 @@
             // 
             // textSum
             // 
-            this.textSum.Location = new System.Drawing.Point(635, 306);
+            this.textSum.Location = new System.Drawing.Point(649, 306);
             this.textSum.Name = "textSum";
             this.textSum.Size = new System.Drawing.Size(90, 25);
             this.textSum.TabIndex = 11;
@@ -222,7 +224,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(731, 309);
+            this.label4.Location = new System.Drawing.Point(745, 309);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 12;
@@ -230,7 +232,7 @@
             // 
             // textDaySum
             // 
-            this.textDaySum.Location = new System.Drawing.Point(804, 306);
+            this.textDaySum.Location = new System.Drawing.Point(818, 306);
             this.textDaySum.Name = "textDaySum";
             this.textDaySum.Size = new System.Drawing.Size(100, 25);
             this.textDaySum.TabIndex = 13;
@@ -246,11 +248,32 @@
             this.btnEmpty.UseVisualStyleBackColor = true;
             this.btnEmpty.Click += new System.EventHandler(this.btnEmpty_Click);
             // 
+            // btnDay
+            // 
+            this.btnDay.Location = new System.Drawing.Point(20, 129);
+            this.btnDay.Name = "btnDay";
+            this.btnDay.Size = new System.Drawing.Size(143, 38);
+            this.btnDay.TabIndex = 15;
+            this.btnDay.Text = "查 询 某 日";
+            this.btnDay.UseVisualStyleBackColor = true;
+            this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
+            // 
+            // btnMonth
+            // 
+            this.btnMonth.Location = new System.Drawing.Point(20, 173);
+            this.btnMonth.Name = "btnMonth";
+            this.btnMonth.Size = new System.Drawing.Size(143, 38);
+            this.btnMonth.TabIndex = 16;
+            this.btnMonth.Text = "查 询 某 月";
+            this.btnMonth.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 356);
+            this.Controls.Add(this.btnMonth);
+            this.Controls.Add(this.btnDay);
             this.Controls.Add(this.btnEmpty);
             this.Controls.Add(this.textDaySum);
             this.Controls.Add(this.label4);
@@ -301,5 +324,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMoney;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBei;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Button btnDay;
+        private System.Windows.Forms.Button btnMonth;
     }
 }

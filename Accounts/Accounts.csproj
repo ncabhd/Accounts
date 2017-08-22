@@ -104,6 +104,12 @@
     <Compile Include="AddForm.Designer.cs">
       <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayForm.Designer.cs">
+      <DependentUpon>DayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBOperate.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,9 @@
     </Compile>
     <EmbeddedResource Include="AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DayForm.resx">
+      <DependentUpon>DayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
