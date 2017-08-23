@@ -61,6 +61,27 @@ namespace Accounts
                             DBOperate.connection.Open();
                             cmd.ExecuteNonQuery();
                             DBOperate.connection.Close();
+
+                            sql = string.Format("create table {0}_Month" +
+                                "(" +
+                                "Date varchar(10)," +
+                                "Credit double(123,2)," +
+                                "Work double(123,2)," +
+                                "InOthers double(123,2)," +
+                                "Debit double(123,2)," +
+                                "Food double(123,2)," +
+                                "Sock double(123,2)," +
+                                "Bus double(123,2)," +
+                                "Play double(123,2)," +
+                                "Study double(123,2)," +
+                                "Store double(123,2)," +
+                                "OutOthers double(123,2)"+
+                                ")", textName.Text);
+                            cmd = new MySqlCommand(sql, DBOperate.connection);
+                            DBOperate.connection.Open();
+                            cmd.ExecuteNonQuery();
+                            DBOperate.connection.Close();
+
                             this.Close();
                         }
                     }

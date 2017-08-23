@@ -154,7 +154,31 @@ namespace Accounts
                     MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                     DBOperate.connection.Open();
                     cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
                     //收入和支出对和的判断
+                    string b = dataGridView1.Rows[a].Cells[1].Value.ToString();
+                    int bit = 0;
+                    int temp = 0;
+                    for(int i=0;i<b.Length;++i)
+                    {
+                        if(b[i]=='-')
+                        {
+                            if(temp==0)
+                            {
+                                temp = 1;
+                            }
+                            else
+                            {
+                                bit = i;
+                                break;
+                            }
+                        }
+                    }
+                    string month="";
+                    for(int i=0;i<bit;++i)
+                    {
+                        month = month + b[i];
+                    }
                     if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "收入")
                     {
                         income = income - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
@@ -162,35 +186,114 @@ namespace Accounts
                         sql = string.Format("update Users set Credit='{0}',Sum='{1}' where UserName = '{2}'", 
                             income, sum, User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
                         cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
+                        sql = string.Format("update {0}_Month set Credit=Credit-{1} where Date='{2}'",
+                            User, dataGridView1.Rows[a].Cells[4].Value, month);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
+                        cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                         //如果是当天则记录下来
                         if(Today(a)==true)
                         {
                             sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", 
                                 Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
                             cmd = new MySqlCommand(sql, DBOperate.connection);
+                            DBOperate.connection.Open();
                             cmd.ExecuteNonQuery();
+                            DBOperate.connection.Close();
                         }
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "兼职")
+                        {
+                            sql = string.Format("update {0}_Month set Work=Work-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "其他")
+                        {
+                            sql = string.Format("update {0}_Month set InOthers=InOthers-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
+                        cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                     }
 
-                    if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "支取")
+                    if (dataGridView1.Rows[a].Cells[2].Value.ToString() == "支出")
                     {
                         consume = consume - Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
                         sum = sum + Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value);
                         sql = string.Format("update Users set Debit='{0}',Sum='{1}' where UserName = '{2}'", 
                             consume, sum, User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
                         cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
+                        sql = string.Format("update {0}_Month set Debit=Debit-{1} where Date='{2}'",
+                            User, dataGridView1.Rows[a].Cells[4].Value, month);
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
+                        cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                         if (Today(a) == true)
                         {
                             sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", 
                                 Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), User);
                             cmd = new MySqlCommand(sql, DBOperate.connection);
+                            DBOperate.connection.Open();
                             cmd.ExecuteNonQuery();
+                            DBOperate.connection.Close();
                         }
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "餐饮")
+                        {
+                            sql = string.Format("update {0}_Month set Food=Food-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "零食")
+                        {
+                            sql = string.Format("update {0}_Month set Sock=Sock-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "公交")
+                        {
+                            sql = string.Format("update {0}_Month set Bus=Bus-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "娱乐")
+                        {
+                            sql = string.Format("update {0}_Month set Play=Play-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "学习")
+                        {
+                            sql = string.Format("update {0}_Month set Study=Study-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "日杂")
+                        {
+                            sql = string.Format("update {0}_Month set Store=Store-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+
+                        if (dataGridView1.Rows[a].Cells[3].Value.ToString() == "其他")
+                        {
+                            sql = string.Format("update {0}_Month set OutOthers=OutOthers-{1} where Date='{2}'",
+                                User, Convert.ToDouble(dataGridView1.Rows[a].Cells[4].Value), month);
+                        }
+                        cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
+                        cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                     }
                     Money();
-                    DBOperate.connection.Close();
                     PopulateDataGridView();     //显示数据
                 }
             }
@@ -276,6 +379,12 @@ namespace Accounts
                 m_db.Connection.Close();
                 this.Dispose();
                 Application.Exit();
+
+                sql = string.Format("drop table {0}_Month", User);
+                cmd = new MySqlCommand(sql, DBOperate.connection);
+                DBOperate.connection.Open();
+                cmd.ExecuteNonQuery();
+                DBOperate.connection.Close();
             }
         }
 
@@ -284,6 +393,13 @@ namespace Accounts
             DayForm df = new DayForm();
             df.mf = this;
             df.ShowDialog();
+        }
+
+        private void btnMonth_Click(object sender, EventArgs e)
+        {
+            MonthForm MonthF = new MonthForm();
+            MonthF.mf = this;
+            MonthF.ShowDialog();
         }
 
         //检查自动提醒和添加生活费

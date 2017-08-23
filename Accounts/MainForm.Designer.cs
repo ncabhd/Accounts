@@ -266,6 +266,7 @@
             this.btnMonth.TabIndex = 16;
             this.btnMonth.Text = "查 询 某 月";
             this.btnMonth.UseVisualStyleBackColor = true;
+            this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
             // 
             // MainForm
             // 

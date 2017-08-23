@@ -125,7 +125,26 @@ namespace Accounts
                 MySqlCommand cmd = new MySqlCommand(sql, DBOperate.connection);
                 DBOperate.connection.Open();
                 cmd.ExecuteNonQuery();
-                if(comboBoxLei.Text=="收入")
+                DBOperate.connection.Close();
+
+                //判断添加的月份有没有记录
+                string month = comboBoxDateYear.Text.Trim() + "-" + comboBoxDateMonth.Text.Trim();
+                sql = string.Format("select count(*) from {0}_Month where Date='{1}'", mf.User, month);
+                cmd = new MySqlCommand(sql, DBOperate.connection);
+                DBOperate.connection.Open();
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+                DBOperate.connection.Close();
+                if(result==0)
+                {
+                    sql = string.Format("insert into {0}_Month values ('{1}',0,0,0,0,0,0,0,0,0,0,0)", mf.User,month);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+                }
+
+
+                if (comboBoxLei.Text == "收入")
                 {
                     mf.income = mf.income + Convert.ToDouble(textMoney.Text);   //主菜单的收入的值
                     mf.income = Math.Round(mf.income, 2);       //四舍五入
@@ -133,15 +152,44 @@ namespace Accounts
                     mf.sum = Math.Round(mf.sum, 2);
                     sql = string.Format("update Users set Credit = '{0}',Sum = '{2}' where UserName = '{1}'", mf.income, mf.User, mf.sum);     //更新MySQL中的收入和总资产
                     cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
                     cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
                     mf.Money();             //更改主菜单的值
-                    if(Today()==true)       //如果添加的是当天的帐，记录下来
+                    if (Today() == true)       //如果添加的是当天的帐，记录下来
                     {
                         sql = string.Format("update Users set DaySum2=DaySum2-{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), mf.User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
                         cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                     }
+
+                    //进行每月的记录
+                    sql = string.Format("update {0}_Month set Credit=Credit+{1} where Date='{2}'", mf.User, Convert.ToDouble(textMoney.Text), month);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+
+                    if (comboBoxItem.Text == "兼职")
+                    {
+                        sql = string.Format("update {0}_Month set Work=Work+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if (comboBoxItem.Text == "其他")
+                    {
+                        sql = string.Format("update {0}_Month set InOthers=InOthers+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+
                 }
+
                 //支出同收入
                 if(comboBoxLei.Text=="支出")
                 {
@@ -151,15 +199,76 @@ namespace Accounts
                     mf.sum = Math.Round(mf.sum, 2);
                     sql = string.Format("update Users set Debit ='{0}',sum='{1}' where UserName='{2}'", mf.consume, mf.sum, mf.User);
                     cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
                     cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
                     mf.Money();
                     if (Today() == true)
                     {
                         sql = string.Format("update Users set DaySum2=DaySum2+{0} where UserName='{1}'", Convert.ToDouble(textMoney.Text), mf.User);
                         cmd = new MySqlCommand(sql, DBOperate.connection);
+                        DBOperate.connection.Open();
                         cmd.ExecuteNonQuery();
+                        DBOperate.connection.Close();
                     }
+
+
+                    sql = string.Format("update {0}_Month set Debit=Debit+{1} where Date='{2}'",
+                        mf.User, Convert.ToDouble(textMoney.Text), month);
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+
+                    if(comboBoxItem.Text=="餐饮")
+                    {
+                        sql = string.Format("update {0}_Month set Food=Food+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+                    if (comboBoxItem.Text == "零食")
+                    {
+                        sql = string.Format("update {0}_Month set Sock=Sock+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if(comboBoxItem.Text=="公交")
+                    {
+                        sql = string.Format("update {0}_Month set Bus=Bus+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if(comboBoxItem.Text=="娱乐")
+                    {
+                        sql = string.Format("update {0}_Month set Play=Play+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if(comboBoxItem.Text=="学习")
+                    {
+                        sql = string.Format("update {0}_Month set Study=Study+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if(comboBoxItem.Text=="日杂")
+                    {
+                        sql = string.Format("update {0}_Month set Store=Store+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    if(comboBoxItem.Text=="其他")
+                    {
+                        sql = string.Format("update {0}_Month set OutOthers=OutOthers+{1} where Date='{2}'",
+                            mf.User, Convert.ToDouble(textMoney.Text), month);
+                    }
+
+                    cmd = new MySqlCommand(sql, DBOperate.connection);
+                    DBOperate.connection.Open();
+                    cmd.ExecuteNonQuery();
+                    DBOperate.connection.Close();
+
                 }
+
+
                 //建一个string数组添加到datagridview
                 string[] row = new string[6];
                 row[1] = data;
@@ -167,7 +276,6 @@ namespace Accounts
                 row[3] = comboBoxItem.Text.Trim();
                 row[4] = textMoney.Text.Trim();
                 row[5] = textDescription.Text.Trim();
-                DBOperate.connection.Close();
                 mf.insertData(row);     //主菜单插入
                 MessageBox.Show("成功添加");
                 this.Close();
