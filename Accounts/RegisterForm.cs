@@ -33,6 +33,10 @@ namespace Accounts
                     textName.SelectAll();
                     textName.Focus();
                 }
+                else if(AllNum()==true)
+                {
+                    MessageBox.Show("用户名不能全为数字");
+                }
                 else
                 {
                     //判断密码长度
@@ -193,6 +197,20 @@ namespace Accounts
             }
             else
                 e.Handled = true;
+        }
+
+        private bool AllNum()
+        {
+            bool result = true;
+            string b = textName.Text.Trim();
+            for(int i=0;i<b.Length;++i)
+            {
+                if(!(b[i]>47&&b[i]<58))
+                {
+                    result = false;
+                }
+            }
+            return result;
         }
     }
 }

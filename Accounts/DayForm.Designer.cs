@@ -52,7 +52,7 @@
             this.ColumnMoney,
             this.ColumnBei,
             this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(292, 18);
+            this.dataGridView1.Location = new System.Drawing.Point(321, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 27;
@@ -113,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(934, 248);
+            this.ClientSize = new System.Drawing.Size(961, 248);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;

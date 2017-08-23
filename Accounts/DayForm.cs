@@ -43,11 +43,10 @@ namespace Accounts
                 i++;
                 string[] row = new string[6];
                 row[0] = i.ToString();
-                row[1] = sdr["ConsumeDate"].ToString();
-                row[2] = sdr["Type"].ToString();
-                row[3] = sdr["Catagory"].ToString();
-                row[4] = sdr["Money"].ToString();
-                row[5] = sdr["Description"].ToString();
+                row[1] = sdr["Type"].ToString();
+                row[2] = sdr["Catagory"].ToString();
+                row[3] = sdr["Money"].ToString();
+                row[4] = sdr["Description"].ToString();
                 dataGridView1.Rows.Add(row);
             }
             DBOperate.connection.Close();

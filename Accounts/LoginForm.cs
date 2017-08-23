@@ -34,6 +34,7 @@ namespace Accounts
         public void getUserName(string name)
         {
             textName.Text = name;
+            textPassword.Text = "";
         }
 
         //获取保存的密码
