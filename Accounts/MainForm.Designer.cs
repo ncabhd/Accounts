@@ -254,7 +254,7 @@
             this.btnDay.Name = "btnDay";
             this.btnDay.Size = new System.Drawing.Size(143, 38);
             this.btnDay.TabIndex = 15;
-            this.btnDay.Text = "查 询 某 日";
+            this.btnDay.Text = "按 日 查 询";
             this.btnDay.UseVisualStyleBackColor = true;
             this.btnDay.Click += new System.EventHandler(this.btnDay_Click);
             // 
@@ -264,7 +264,7 @@
             this.btnMonth.Name = "btnMonth";
             this.btnMonth.Size = new System.Drawing.Size(143, 38);
             this.btnMonth.TabIndex = 16;
-            this.btnMonth.Text = "查 询 某 月";
+            this.btnMonth.Text = "按 月 查 询";
             this.btnMonth.UseVisualStyleBackColor = true;
             this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
             // 

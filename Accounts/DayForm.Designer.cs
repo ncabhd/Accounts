@@ -118,7 +118,7 @@
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;
             this.Name = "DayForm";
-            this.Text = "DayForm";
+            this.Text = "按日查询";
             this.Load += new System.EventHandler(this.DayForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

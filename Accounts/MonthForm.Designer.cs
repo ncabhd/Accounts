@@ -454,7 +454,7 @@
             this.Controls.Add(this.comboBoxDateYear);
             this.MaximizeBox = false;
             this.Name = "MonthForm";
-            this.Text = " ";
+            this.Text = " 按月查询";
             this.Load += new System.EventHandler(this.MonthForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
